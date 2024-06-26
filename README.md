@@ -58,7 +58,7 @@ The aim of this project is to establish a premier logistics brand that delivers 
 
 The project schedule and due dates for different phases are managed through Trello. You can view the schedule and track progress via the Trello board:
 
-[![Trello](https://img.shields.io/badge/Trello-Board-blue)](#)
+[![Trello](https://img.shields.io/badge/Trello-Board-blue)](https://trello.com/b/SUPhDmia)
 
 ## 💻 Installation
 
