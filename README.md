@@ -1,6 +1,6 @@
 # 🚚 MIST LOGISTICS
 
-![MIST LOGISTICS Logo](https://imgur.com/Zs4iILC)
+![MIST LOGISTICS Logo](https://imgur.com/cyjy8nw)
 
 **"Swift. Strong. Reliable."**
 
