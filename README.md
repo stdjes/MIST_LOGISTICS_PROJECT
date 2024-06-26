@@ -1,5 +1,7 @@
 # 🚚 MIST LOGISTICS
 
+![MIST LOGISTICS Logo](https://imgur.com/Zs4iILC)
+
 **"Swift. Strong. Reliable."**
 
 ## 🌟 ALX Web Stack Portfolio Project
