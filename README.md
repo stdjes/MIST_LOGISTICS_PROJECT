@@ -66,7 +66,7 @@ To get a local copy up and running, follow these simple steps:
 
 1. **Clone the repo**
     ```sh
-    git clone https://github.com/your_username/MIST-LOGISTICS.git
+    git clone https://github.com/your_username/MIST_LOGISTICS_PROJECT.git
     ```
 2. **Install NPM packages**
     ```sh
@@ -97,7 +97,7 @@ To get a local copy up and running, follow these simple steps:
 
 ## 🌐 Live Demo
 
-Check out the live demo of our website: [MIST LOGISTICS Live Demo](https://your-live-demo-link.com)
+Check out the live demo of our website: [MIST LOGISTICS Live Demo](https://#)
 
 ## 🤝 Contributing
 
@@ -115,12 +115,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📞 Contact
 
-Your Name - [![Twitter](https://img.shields.io/badge/Twitter-@your_username-blue)](https://twitter.com/your_username) - your_email@example.com
+Stephen Djes - [![Twitter](https://img.shields.io/badge/Twitter-@your_username-blue)](https://twitter.com/stephendjes) - stephendjes@gmail.com
 
-Project Link: [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/your_username/MIST-LOGISTICS)
+Project Link: [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/stdjes/MIST_LOGISTICS_PROJECT)
 
 ## 👥 Contributors
 
-- **Contributor Name** - [![GitHub](https://img.shields.io/badge/GitHub-Profile-blue)](https://github.com/username)
-- **Contributor Name** - [![GitHub](https://img.shields.io/badge/GitHub-Profile-blue)](https://github.com/username)
-- **Contributor Name** - [![GitHub](https://img.shields.io/badge/GitHub-Profile-blue)](https://github.com/username)
+- **Stephen Eze** - [![GitHub](https://img.shields.io/badge/GitHub-Profile-blue)](https://github.com/stdjes)
+- **Michael Nketia** - [![GitHub](https://img.shields.io/badge/GitHub-Profile-blue)](https://github.com/Addict007)
+
