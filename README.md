@@ -31,11 +31,10 @@ The aim of this project is to establish a premier logistics brand that delivers 
 - 🅱️ Bootstrap
 
 ### Backend
-- 🟢 Node.js
-- 🚏 Express.js
+- 🟢 Flask
 
 ### Database
-- 🍃 MongoDB
+- 🍃 MySQL
 
 ### Third-Party Services
 - 🌍 **Google Maps API**: For location tracking and map-based services
