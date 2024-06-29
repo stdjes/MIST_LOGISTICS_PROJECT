@@ -117,7 +117,7 @@ body.show-nav .header {
 }
 
 .nav__link.active {
-    background-color: #004AF2 ;
+    background-color: red ;
 
 }
 
@@ -361,9 +361,11 @@ body.show-nav .header {
 .request-form {
     width: 100%;
     max-width: 400px;
-    background-color: #004AF2;
+    background-color: #1F1F1F;
     border-radius: 5px;
     overflow: hidden;
+    opacity: 0.8;
+    transition: opacity 0.2s linear;
 }
 
 .request-form--intro {
@@ -382,7 +384,9 @@ body.show-nav .header {
 
 
 .request-form__header {
-    background-color: #033FC9;
+    background-color: #0F0F0F;
+    opacity: 0.8;
+    transition: opacity 0.2s linear;
 
     padding: 20px 30px;
     
@@ -535,7 +539,8 @@ body.show-nav .header {
 }
 
 .btn--orange {
-    background: linear-gradient(to right, #FF903E, #FF2C2C);
+    /* background: linear-gradient(to right, #FF903E, #FF2C2C); */
+    background: #ff1313;
     
 }
 
@@ -567,7 +572,7 @@ body.show-nav .header {
 }
 
 .section__title span {
-    color: #004AF2;
+    color: #ff0000;
 }
 
 .section--gray {
@@ -627,6 +632,14 @@ body.show-nav .header {
 
 }
 
+.services__image {
+    display: block;
+    margin: 0 0 10px 0;
+    border-radius: 10px; /* Adjust for more or less rounded corners */
+    width: 80%; /* Adjust width as needed */
+    max-width: 100%; /* Ensure the image does not exceed the container's width */
+}
+
 .services__text {
     font-size: 16px;
     
@@ -642,7 +655,7 @@ body.show-nav .header {
 
 .services__link {
     font-size: 16px;
-    color: #004AF2;
+    color: #ff0000;
     text-decoration: none;
     transition: color .2s linear;
 
@@ -655,7 +668,7 @@ body.show-nav .header {
     display: block;
     width: 10px;
     height: 2px;
-    background-color: #004AF2;
+    background-color: #FF0000;
 
     transition: width .2s linear;
     margin-top: 5px;
@@ -664,12 +677,12 @@ body.show-nav .header {
 }
 
 .services__link:hover {
-    color: #FF3E2F;
+    color: #313131;
 }
 
 .services__link:hover::after {
     width: 100%;
-    background-color: #FF3E2F;
+    background-color: #ff6358;
 }
 
 /* Clients */
@@ -758,7 +771,7 @@ body.show-nav .header {
 }
 
  .slick-active button {
-    background: #004AF2;
+    background: #ff0000;
     box-shadow: 0 0 0 7px rgba(0, 74, 242, .11);
 }
 
@@ -1009,7 +1022,7 @@ body.show-nav .header {
 }
 
 .mission::before {
-    background-color:  #004AF2;
+    background-color:  #404040;
     right: 50%;
 }
 
@@ -1022,7 +1035,7 @@ body.show-nav .header {
 .mission__title {
     
     font-size: 30px;
-    color: #004AF2;
+    color: #ff0000;
     font-weight: 700;
     line-height: 1.2;
 
@@ -1138,7 +1151,7 @@ body.show-nav .header {
 .footer__nav a {
     margin: 0 5px;
 
-    color: #004AF2;
+    color: #ff0000;
     text-decoration: none;
 }
 
@@ -1198,7 +1211,7 @@ body.show-nav .header {
 .modal__title {
     font-family: 'Lato', sans-serif;
     font-size: 24px;
-    color: #004AF2;
+    color: #FF0000;
     font-weight: 900;
     line-height: 1.2;
 
