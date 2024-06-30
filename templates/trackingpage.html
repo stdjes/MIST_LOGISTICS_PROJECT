@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slick.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/fav/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/fav/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/fav/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='images/fav/manifest.json') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='images/fav/safari-pinned-tab.svg') }}" color="#004AF2">
+    <meta name="msapplication-TileColor" content="#004AF2">
+    <meta name="theme-color" content="#004AF2">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans&display=swap" rel="stylesheet">
+    <title>MIST Logistics - Strong, Fast, Reliable!</title>
+    
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .tracking-card{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+
+        }
+
+        .tracktitle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 240px;
+        }
+
+        .package.form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .input-group-text {
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group-text input {
+            margin-right: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            padding: 10px 20px;
+            background-color: #004AF2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #003bbd;
+        }
+
+        .reset {
+            margin-top: 10px;
+            text-decoration: none;
+            color: #004AF2;
+        }
+
+        .reset:hover {
+            text-decoration: underline;
+        }
+
+        .tracking-result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!--Header-->
+        {% include "includes/navbar.html" %}
+        <!--/.Header-->
+    </div>
+
+    <div class="tracktitle">
+        <h3>Track Your Packages</h3>
+    </div>
+
+    <div class="package form">
+        <form method="GET" action="{{ url_for('tracking') }}" accept-charset="UTF-8" class="" id="search_form_id" role="search">
+            <div class="input-group">
+                <div class="input-group-text">
+                    <input type="radio" class="form" name="package_radio" id="inlineRadio1" checked value="package_id">
+                    <label for="inlineRadio1">Package Number</label>
+                </div>
+            </div>
+            <div class="form-group search">
+                <input type="number" class="form-control" name="package_id" placeholder="Enter your package or item ID here" required>
+                <button type="submit" class="btn btn-primary">Track</button>
+                <a class="reset" href="{{ url_for('tracking') }}">Reset</a>
+            </div>
+        </form>
+        <br><br>
+        
+    </div>
+    <div class="tracking-card">
+        {% if tracking_result %}
+        <div class="tracking-result">
+            <h4>Tracking Result</h4>
+            <p>Status: {{ tracking_result.status }}</p>
+            <p>Location: {{ tracking_result.location }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    
+</body>
+
+</html>
