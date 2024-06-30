@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            height: 2000px; /* Just to ensure we have a scrollable page for testing */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            position: relative; /* Ensure body is positioned relative for button positioning */
+        }
+
+        .floating-button {
+            position: fixed;
+            bottom: 20px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            width: 50px; /* Adjust as needed */
+            height: 50px; /* Adjust as needed */
+            background-color: red;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none; /* Remove underline from link */
+            z-index: 1000; /* Ensure it's on top of other elements */
+        }
+
+        .floating-button__icon {
+            width: 24px; /* Adjust as needed */
+            height: 24px; /* Adjust as needed */
+            fill: white; /* Ensure the icon is visible */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Your existing HTML content -->
+
+    <!-- Floating button -->
+    <a href="#" class="floating-button">
+        <svg class="floating-button__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L4 12h5v8h6v-8h5L12 3z"/></svg>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.querySelector('.floating-button');
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

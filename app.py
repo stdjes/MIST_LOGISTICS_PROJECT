@@ -15,3 +15,7 @@ def blog():
 @app.route('/text')
 def text():
     return render_template("text.html")
+
+@app.route('/login')
+def login():
+    return render_template("login.html")

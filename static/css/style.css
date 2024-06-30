@@ -6,9 +6,36 @@ body {
     line-height: 1.4;
     color: #585858;
 
+    position: relative;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.floating-button {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none; /* Remove underline from link */
+    z-index: 1000; /* Ensure it's on top of other elements */
+}
+.floating-button__icon {
+    width: 24px; /* Adjust as needed */
+    height: 24px; /* Adjust as needed */
+    fill: white; /* Ensure the icon is visible */
+}
+
+
+
+
 
 .no-scroll,
 .show-nav {
@@ -119,6 +146,23 @@ body.show-nav .header {
 .nav__link.active {
     background-color: red ;
 
+}
+
+.nav__avatar::before {
+    content: "";
+    display: inline-block;
+    width: 1px; /* Width of the separator line */
+    height: 30px; /* Height of the separator, matching the avatar */
+    background-color: #ccc; /* Color of the separator */
+    margin-right: 8px; /* Space between the separator and the avatar */
+}
+
+
+.nav__avatar {
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Ensure the height matches the width for a square image */
+    border-radius: 50%; /* Make the image round */
+    margin-right: 8px; /* Add some space between the avatar and the text */
 }
 
 /* Burger*/
@@ -1489,6 +1533,7 @@ body.show-nav .header {
     }
 
    
+
 
 
     /* Nav */
