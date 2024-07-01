@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/aos.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/fav/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/fav/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#004AF2">
+    <meta name="msapplication-TileColor" content="#004AF2">
+    <meta name="theme-color" content="#004AF2">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans&display=swap" rel="stylesheet">
+    <title>Client Area - Mist Logistics</title>
+ <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background-color: #f2f2f2;
+        }
+
+        .registration-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .registration-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+</head>
+<body>
+<!--Header-->
+<header class="header header--dark" id="header">
+    <div class="conteiner">
+       <div class="header__inner">
+        <a href="index.html">
+            <img src="static/images/header icon/_ionicons_svg_md-locate 1.svg" alt="">
+            </a>
+            <nav class="nav">
+                <a class="nav__link" href="/">Home</a>
+                <a class="nav__link" href="/blog">Blog</a>
+                <a class="nav__link active" href="/text">Privacy Policy</a>
+                <a class="nav__link" href="/text">Terms &amp; Conditions</a>
+            </nav>
+            <button class="burger" type="button">
+                <img class="burger__icon" src="static/images/introbg/burger.svg" alt="">
+            </button>
+        </div>
+    </div>
+</header><!--/.Header-->
+
+
+
+
+</div>
+
+<!--Script js-->
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.slim.min.js"></script>
+<script src="static/js/app.js"></script>
+<script src="static/js/slick.min.js"></script>
+<script src="static/js/app.js"></script>
+<script src="static/js/aos.js"></script>
+
+<div class="container">
+        <form class="registration-form" id="registrationForm">
+            <h2>Register</h2>
+            <a href="/login">Already have an account?</a>
+            <br>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm_password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+
+
+ <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var form = this;
+            fetch('/register', {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if (data.access_token) {
+                    // Redirect to login or any other page after successful registration
+                    window.location.href = '/login';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
