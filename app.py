@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = "uijdkshkdfljkodlfjldjfldsf"
 
 # Ensure you set the SQLAlchemy Database URI before creating the db instance
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:pokermessiaH307864$@localhost/logistics_db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:root@localhost/logistics_db"
 
 db = SQLAlchemy(app)
 
@@ -20,12 +20,13 @@ class Shipment(db.Model):
     def __repr__(self):
         return f'<Shipment {self.tracking_id}>'
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
+# @app.before_first_request
+# def create_tables():
+#     db.create_all()
 
 @app.route('/')
 def index():
+    db.create_all()
     return render_template("index.html")
 
 @app.route('/blog')
