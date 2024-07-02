@@ -17,8 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans&display=swap" rel="stylesheet">
     <title>Client Area - Mist Logistics</title>
-
-    <style>
+ <style>
         body, html {
             height: 100%;
             margin: 0;
@@ -33,7 +32,7 @@
             background-color: #f2f2f2;
         }
 
-        .login-form {
+        .registration-form {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -42,7 +41,7 @@
             max-width: 400px;
         }
 
-        .login-form h2 {
+        .registration-form h2 {
             text-align: center;
             margin-bottom: 20px;
         }
@@ -77,6 +76,7 @@
             background-color: #45a049;
         }
     </style>
+
 </head>
 <body>
 <!--Header-->
@@ -113,10 +113,14 @@
 <script src="static/js/aos.js"></script>
 
 <div class="container">
-        <form class="login-form" id="loginForm">
-            <h2>Login</h2>
-            <a href="/register">Create an account?</a>
+        <form class="registration-form" id="registrationForm">
+            <h2>Register</h2>
+            <a href="/login">Already have an account?</a>
             <br>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
@@ -126,16 +130,21 @@
                 <input type="password" id="password" name="password" required>
             </div>
             <div class="form-group">
-                <button type="submit">Login</button>
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm_password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Register</button>
             </div>
         </form>
     </div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
+
+ <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
             event.preventDefault();
             var form = this;
-            fetch('/login', {
+            fetch('/register', {
                 method: 'POST',
                 body: new FormData(form)
             })
@@ -143,13 +152,12 @@
             .then(data => {
                 alert(data.message);
                 if (data.access_token) {
-                    // Redirect to dashboard or any other page after successful login
-                    window.location.href = '/dashboard';
+                    // Redirect to login or any other page after successful registration
+                    window.location.href = '/login';
                 }
             })
             .catch(error => console.error('Error:', error));
         });
     </script>
-
 </body>
 </html>
