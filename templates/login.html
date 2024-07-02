@@ -18,7 +18,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans&display=swap" rel="stylesheet">
     <title>Client Area - Mist Logistics</title>
 
-    <style>
+<style>
+        :root {
+            --primary-color: red; /* Change theme color to red */
+        }
+
         body, html {
             height: 100%;
             margin: 0;
@@ -66,7 +70,7 @@
         .form-group button {
             width: 100%;
             padding: 10px;
-            background-color: #4CAF50;
+            background-color: red; 
             color: white;
             border: none;
             border-radius: 4px;
@@ -74,82 +78,106 @@
         }
 
         .form-group button:hover {
-            background-color: #45a049;
+            background-color: darkred; /* Darken the button on hover */
+        }
+
+        .create-account {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 <!--Header-->
-<header class="header header--dark" id="header">
+<header class="header header--red" id="header">
     <div class="conteiner">
        <div class="header__inner">
-        <a href="index.html">
-            <img src="static/images/header icon/_ionicons_svg_md-locate 1.svg" alt="">
-            </a>
-            <nav class="nav">
-                <a class="nav__link" href="/">Home</a>
-                <a class="nav__link" href="/blog">Blog</a>
-                <a class="nav__link active" href="/text">Privacy Policy</a>
-                <a class="nav__link" href="/text">Terms &amp; Conditions</a>
-            </nav>
-            <button class="burger" type="button">
-                <img class="burger__icon" src="static/images/introbg/burger.svg" alt="">
-            </button>
+        <a href="/" data-scroll="#intro" >
+        <img class="img" src="static/images/headericon/logo.svg" alt="logo">
+        
+        </a>
+        <nav class="nav" id="nav">
+            <a class="nav__link" href="/tracking" >Tracking </a>
+            <a class="nav__link" href="/blog">Blog</a>
+            <a class="nav__link" href="/text">Privacy Policy</a>
+            <a class="nav__link" href="/text">Terms & Conditions</a>
+        </nav>
+        <button class="burger" type="button" id="navToggle">
+            <span class="burger__line">1</span>
+            <span class="burger__line">2</span>
+            <span class="burger__line">3</span>
+            <span class="burger__line">4</span>
+        </button>
         </div>
     </div>
 </header><!--/.Header-->
 
-
-
-
+<!-- Login Form -->
+<div class="container">
+    <form class="login-form" id="loginForm">
+        <h2>Login</h2>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Login</button>
+        </div>
+        <div class="create-account">
+            <h3>Don't have an account?</h3>
+            <a href="/register"><h4>Create account</h4></a>
+        </div>
+    </form>
 </div>
 
-<!--Script js-->
 
+  <!--Footer-->
+  <footer class="footer">
+    <div class="conteiner">
+        <img src="static/images/footer/logo.svg" alt="">
+        <address class="footer__contacts">
+            <p>New York, Street, ZIP code
+            </p>
+            <p>Call Us:<a href="tel:+1234567890"> +1234567890</a> or E-mail:<a href="mailto:info@mistlogistics.com">info@mistlogistics.com</a></p>
+        </address>
+        <nav class="footer__nav">
+            <a href="/text">Terms & Contidions</a>
+            <a href="/text"> Privacy Policy</a>
+            <a href="/blog">  Our blog</a>
+        </nav>
+    </div>
+</footer><!--/.Footer-->
+
+
+<!-- Script JS -->
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.slim.min.js"></script>
 <script src="static/js/app.js"></script>
 <script src="static/js/slick.min.js"></script>
-<script src="static/js/app.js"></script>
 <script src="static/js/aos.js"></script>
 
-<div class="container">
-        <form class="login-form" id="loginForm">
-            <h2>Login</h2>
-            <a href="/register">Create an account?</a>
-            <br>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Login</button>
-            </div>
-        </form>
-    </div>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var form = this;
-            fetch('/login', {
-                method: 'POST',
-                body: new FormData(form)
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message);
-                if (data.access_token) {
-                    // Redirect to dashboard or any other page after successful login
-                    window.location.href = '/dashboard';
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        });
-    </script>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var form = this;
+        fetch('/login', {
+            method: 'POST',
+            body: new FormData(form)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.access_token) {
+                // Redirect to dashboard or any other page after successful login
+                window.location.href = '/user/dashboard';
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
 
 </body>
 </html>

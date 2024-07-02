@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/css/aos.css">
+        <link rel="stylesheet" href="../static/css/slick.css">
+       
+        <link rel="apple-touch-icon" sizes="180x180" href="../static/images/fav/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../static/images/fav/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../static/images/fav/favicon-16x16.png">
+        <link rel="manifest" href="../static/images/fav/manifest.json">
+        <link rel="mask-icon" href="../static/images/fav/safari-pinned-tab.svg" color="#004AF2">
+        <meta name="msapplication-TileColor" content="#004AF2">
+        <meta name="theme-color" content="#004AF2">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans&display=swap" rel="stylesheet">
+        <title>Dashboard - MIST Client Area</title>
+    </head>
+
+    <style>
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding-top: 20px;
+    margin-right: 20px; /* Space between sidebar and main content */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #555;
+}
+
+.sidebar ul li a.active {
+    background-color: #555;
+    font-weight: bold;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto; /* Enable scroll if content overflows */
+}
+
+.dashboard-overview {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.dashboard-overview h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.summary, .quick-actions, .notifications {
+    margin-bottom: 20px;
+}
+
+.summary h3, .quick-actions h3, .notifications h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Header Navigation */
+.header {
+    background-color: #ff2929;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Space below the header */
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+}
+
+.header-nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.header-nav ul li {
+    margin-right: 10px;
+}
+
+.header-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.header-nav ul li a:hover {
+    background-color: #555;
+}
+
+.header-nav ul li a.active {
+    background-color: #555;
+    font-weight: bold;
+}
+
+/* Logout button */
+.logout {
+    background-color: #f44336; /* Red */
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout:hover {
+    background-color: #d32f2f; /* Darker red */
+}
+    </style>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Your Dashboard</h1>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#" onclick="loadPage('support')">Support</a></li>
+                <li><a href="#" onclick="loadPage('settings')">Settings</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li> <!-- Logout button in header -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#" id="dashboard-link" class="active" onclick="loadPage('overview')">Overview</a></li>
+                <li><a href="#" onclick="loadPage('shipments')">My Shipments</a></li>
+                <li><a href="#" onclick="loadPage('create')">Create Shipment</a></li>
+                <li><a href="#" onclick="loadPage('invoices')">Invoices</a></li>
+                <li><a href="#" onclick="loadPage('support')">Support</a></li>
+                <li><a href="#" onclick="loadPage('settings')">Settings</a></li>
+                
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Content will be dynamically loaded here -->
+        </main>
+    </div>
+
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <script src="../static/js/slick.min.js"></script>
+    <script src="../static/js/aos.js"></script>
+    <script src="../static/js/app.js"></script>
+    <script src="../static/js/script.js"></script>
+
+</body>
+</html>
