@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "uijdkshkdfljkodlfjldjfldsf"
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:pokermessiaH307864$@localhost/logistics_db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:root@localhost/logistics_db"
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
 
 bcrypt = Bcrypt(app)
@@ -24,6 +24,20 @@ class User(db.Model):
 
     def check_password(self, password):
         return bcrypt.check_password_hash(self.password, password)
+ 
+class Shipment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    tracking_id = db.Column(db.String(255), unique=True, nullable=False)
+    status = db.Column(db.String(255), nullable=False)
+    location = db.Column(db.String(255), nullable=False)
+    last_updated = db.Column(db.DateTime, default=db.func.current_timestamp())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __repr__(self):
+        return f'<Shipment {self.tracking_id}>'
+    
+with app.app_context():
+    db.create_all()
 
 class Shipment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -69,9 +83,33 @@ def register():
         except Exception as e:
             return jsonify({'message': f'Error registering user: {str(e)}'}), 500
     return render_template('registration.html')
-@app.route("/dashboard", methods=['POST','GET'])
+@app.route("/user/dashboard", methods=['POST','GET'])
 def dashboard():
-    return  render_template("dashboard.html")
+    return  render_template("user/dashboard.html")
+
+@app.route("/user/overview", methods=['POST','GET'])
+def overview():
+    return  render_template("user/overview.html")
+
+@app.route("/user/shipments", methods=['POST','GET'])
+def shipments():
+    return  render_template("user/shipments.html")
+
+@app.route("/user/create_shipment", methods=['POST','GET'])
+def create_shipment():
+    return  render_template("user/create_shipment.html")
+
+@app.route("/user/invoices", methods=['POST','GET'])
+def invoices():
+    return  render_template("user/invoices.html")
+
+@app.route("/user/settings", methods=['POST','GET'])
+def settings():
+    return  render_template("user/settings.html")
+
+@app.route("/user/support", methods=['POST','GET'])
+def support():
+    return  render_template("user/support.html")
 
 @app.route('/login', methods=['POST','GET'])
 def login():

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../static/css/aos.css">
+    <link rel="stylesheet" href="../static/css/slick.css">
+    <link rel="stylesheet" href="../static/css/dash.css">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/fav/favicon-16x16.png">
+    <link rel="manifest" href="../static/images/fav/manifest.json">
+    <link rel="mask-icon" href="../static/images/fav/safari-pinned-tab.svg" color="#004AF2">
+    <meta name="msapplication-TileColor" content="#004AF2">
+    <meta name="theme-color" content="#004AF2">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans&display=swap" rel="stylesheet">
+    <title>Dashboard - MIST Client Area</title>
+  
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Your Dashboard</h1>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#" onclick="loadPage('support')">Support</a></li>
+                <li><a href="#" onclick="loadPage('settings')">Settings</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#" id="dashboard-link" class="active" onclick="loadPage('overview')">Overview</a></li>
+                <li><a href="#" onclick="loadPage('shipments')">My Shipments</a></li>
+                <li><a href="#" onclick="loadPage('create')">Create Shipment</a></li>
+                <li><a href="#" onclick="loadPage('invoices')">Invoices</a></li>
+                <li><a href="#" onclick="loadPage('support')">Support</a></li>
+                <li><a href="#" onclick="loadPage('settings')">Settings</a></li>
+            </ul>
+        </aside>
+        <main class="main-content" id="mainContent">
+            
+        </main>
+    </div>
+
+       <!--Footer-->
+  <footer class="footer">
+    <div class="conteiner">
+        <img src="../static/images/footer/logo.svg" alt="">
+        <address class="footer__contacts">
+            <p>New York, Street, ZIP code
+            </p>
+            <p>Call Us:<a href="tel:+1234567890"> +1234567890</a> or E-mail:<a href="mailto:info@mistlogistics.com">info@mistlogistics.com</a></p>
+        </address>
+        <nav class="footer__nav">
+            <a href="/text">Terms & Contidions</a>
+            <a href="/text"> Privacy Policy</a>
+            <a href="/blog">  Our blog</a>
+        </nav>
+    </div>
+    </footer><!--/.Footer-->
+
+    
+    <script src="../static/js/slick.min.js"></script>
+    <script src="../static/js/aos.js"></script>
+    <script src="../static/js/app.js"></script>
+    <script src="../static/js/script.js"></script>
+   
+</body>
+</html>

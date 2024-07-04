@@ -112,6 +112,13 @@ body.show-nav .header {
    
 }
 
+.header--red,
+body.show-nav .header {
+    background-color: rgba(255, 0, 0, 0.9);
+    
+   
+}
+
 .header__inner {
     display: flex;
     justify-content: space-between;
