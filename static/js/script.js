@@ -90,3 +90,34 @@ function logout() {
     // Example: Redirect to login page
     window.location.href = '../login';
 }
+
+
+
+
+        // Chart.js Example
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: '# of Shipments',
+                    data: [12, 19, 3, 5, 2, 3, 7],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // DataTable Example
+        $(document).ready(function() {
+            $('#shipmentsTable').DataTable();
+        });
