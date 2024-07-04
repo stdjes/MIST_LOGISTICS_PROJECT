@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "uijdkshkdfljkodlfjldjfldsf"
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:root@localhost/logistics_db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:pokermessiaH307864$@localhost/logistics_db"
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
 
 bcrypt = Bcrypt(app)
@@ -24,14 +24,7 @@ class User(db.Model):
 
     def check_password(self, password):
         return bcrypt.check_password_hash(self.password, password)
- 
-class Shipment(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    tracking_id = db.Column(db.String(255), unique=True, nullable=False)
-    status = db.Column(db.String(255), nullable=False)
-    location = db.Column(db.String(255), nullable=False)
-    last_updated = db.Column(db.DateTime, default=db.func.current_timestamp())
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
 
     def __repr__(self):
         return f'<Shipment {self.tracking_id}>'
