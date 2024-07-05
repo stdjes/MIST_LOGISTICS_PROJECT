@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "uijdkshkdfljkodlfjldjfldsf"
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:pokermessiaH307864$@localhost/logistics_db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:root@localhost/logistics_db"
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
 
 bcrypt = Bcrypt(app)

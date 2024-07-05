@@ -106,7 +106,7 @@
             alert(data.message);
             if (data.access_token) {
                 // Redirect to dashboard or any other page after successful login
-                window.location.href = '/user/overview';
+                window.location.href = '/user/dashboard';
             }
         })
         .catch(error => console.error('Error:', error));

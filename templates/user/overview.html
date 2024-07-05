@@ -21,110 +21,242 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans&display=swap" rel="stylesheet">
     <title>Dashboard - MIST Client Area</title>
    
-</head>
+</head> 
+
+<style>
+    /* Reset default styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Basic styling */
+    body {
+        font-family: 'Lato', 'PT Sans', Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+    }
+
+    .main-content {
+        max-width: 1200px;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+        padding: 20px;
+    }
+
+    .dashboard-overview {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .dashboard-overview h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .chart-container {
+        margin-bottom: 20px;
+    }
+
+    .table-container {
+        margin-top: 20px;
+    }
+
+    .table-container h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    /* Light-red themed styles */
+    button.light-red {
+        background-color: #ffcccc;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button.light-red:hover {
+        background-color: #ff9999;
+    }
+
+    .notifications ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .notifications ul li {
+        margin-bottom: 5px;
+        padding: 5px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Chart.js */
+    canvas#myChart {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
 
         <main class="main-content" id="mainContent">
-            <!-- Dashboard Overview -->
-            <div class="dashboard-overview">
-                <h2>Dashboard Overview</h2>
-                <div class="chart-container">
-                    <canvas id="myChart"></canvas>
+            <div class="main-content">
+                <!-- Dashboard Overview -->
+                <div class="dashboard-overview">
+                    <h2>Dashboard Overview</h2>
+                    <div class="chart-container">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <section class="summary">
+                        <h3>Summary</h3>
+                        <p>Welcome to your dashboard! Here you will find a summary of your recent activities and important notifications.</p>
+                    </section>
+                    <section class="quick-actions">
+                        <h3>Quick Actions</h3>
+                        <button class="light-red">Action 1</button>
+                        <button class="light-red">Action 2</button>
+                    </section>
+                    <section class="notifications">
+                        <h3>Notifications</h3>
+                        <div class="notification-item">Notification: Your shipment to Los Angeles has been delivered.</div>
+                        <div class="notification-item">Notification: New invoice generated for your recent shipment.</div>
+                        <div class="notification-item">Notification: Account update: Your payment method has been successfully updated.</div>
+                        <div class="notification-item">Notification: Upcoming maintenance: Scheduled downtime on July 15th.</div>
+                        <div class="notification-item">Notification: System update: New features added to the dashboard.</div>
+                    </section>
                 </div>
-                <section class="summary">
-                    <h3>Summary</h3>
-                    <p>Some summary statistics here...</p>
-                </section>
-                <section class="quick-actions">
-                    <h3>Quick Actions</h3>
-                    <button>Action 1</button>
-                    <button>Action 2</button>
-                </section>
-                <section class="notifications">
-                    <h3>Notifications</h3>
-                    <ul>
-                        <li>Notification 1</li>
-                        <li>Notification 2</li>
-                        <li>Notification 3</li>
-                    </ul>
-                </section>
+                
+                <!-- Data Table -->
+                <div class="table-container">
+                    <h2>Recent Shipments</h2>
+                    <table id="shipmentsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2024-01-01</td>
+                                <td>Delivered</td>
+                                <td>Details...</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>2024-01-02</td>
+                                <td>In Transit</td>
+                                <td>Details...</td>
+                            </tr>
+                            <!-- Additional rows -->
+                            <tr>
+                                <td>3</td>
+                                <td>2024-01-03</td>
+                                <td>Processing</td>
+                                <td>Details...</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>2024-01-04</td>
+                                <td>Shipped</td>
+                                <td>Details...</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>2024-01-05</td>
+                                <td>Delivered</td>
+                                <td>Details...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            
-            <!-- Data Table -->
-            <div class="table-container">
-                <h2>Recent Shipments</h2>
-                <table id="shipmentsTable" class="display">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>2024-01-01</td>
-                            <td>Delivered</td>
-                            <td>Details...</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2024-01-02</td>
-                            <td>In Transit</td>
-                            <td>Details...</td>
-                        </tr>
-                        <!-- More rows as needed -->
-                    </tbody>
-                </table>
-            </div>
-        </main>
-    </div>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    
-    
-    <script>
-        // Chart.js Example
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [{
-                    label: '# of Shipments',
-                    data: [12, 19, 3, 5, 2, 3, 7],
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+        
+            <!-- Scripts -->
+            <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        
+            <script>
+                // Random notification texts
+                const notifications = [
+                    'Notification: Your shipment to Los Angeles has been delivered.',
+                    'Notification: New invoice generated for your recent shipment.',
+                    'Notification: Account update: Your payment method has been successfully updated.',
+                    'Notification: Upcoming maintenance: Scheduled downtime on July 15th.',
+                    'Notification: System update: New features added to the dashboard.'
+                ];
+        
+                function getRandomNotification() {
+                    return notifications[Math.floor(Math.random() * notifications.length)];
                 }
-            }
-        });
+        
+                // Update notifications every 5 seconds
+                setInterval(function() {
+                    const notificationItems = document.querySelectorAll('.notification-item');
+                    notificationItems.forEach(function(item) {
+                        item.textContent = getRandomNotification();
+                    });
+                }, 5000);
+        
+                // Chart.js Example
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                        datasets: [{
+                            label: '# of Shipments',
+                            data: [12, 19, 3, 5, 2, 3, 7],
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)', // Light-red background
+                            borderColor: 'rgba(255, 99, 132, 1)', // Light-red border
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+        
+                // DataTable Example
+                $(document).ready(function() {
+                    $('#shipmentsTable').DataTable();
+                });
+            </script>
 
-        // DataTable Example
-        $(document).ready(function() {
-            $('#shipmentsTable').DataTable();
-        });
-
-        // Load page function for navigation
-        function loadPage(page) {
-            // Implement AJAX to dynamically load content
-            console.log('Loading page:', page);
-        }
-
-        // Logout function
-        function logout() {
-            // Implement logout functionality
-            console.log('Logging out...');
-        }
-    </script>
+            
 </main>
 {% endblock %}
