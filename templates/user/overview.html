@@ -1,4 +1,8 @@
+{% extends "user/base2.html" %}
 
+{% block title %}Invoices{% endblock %}
+
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,8 +22,7 @@
     <title>Dashboard - MIST Client Area</title>
    
 </head>
-<body>
-    
+
         <main class="main-content" id="mainContent">
             <!-- Dashboard Overview -->
             <div class="dashboard-overview">
@@ -123,4 +126,5 @@
             console.log('Logging out...');
         }
     </script>
-</body>
+</main>
+{% endblock %}
