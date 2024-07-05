@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/aos.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/login.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/fav/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/fav/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#004AF2">
+    <meta name="msapplication-TileColor" content="#004AF2">
+    <meta name="theme-color" content="#004AF2">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans&display=swap" rel="stylesheet">
+    <title>Log in - Mist Logistics</title>
+
+</head>
+<body>
+<!--Header-->
+<header class="header header--red" id="header">
+    <div class="conteiner">
+       <div class="header__inner">
+        <a href="/" data-scroll="#intro" >
+        <img class="img" src="static/images/headericon/logo.svg" alt="logo">
+        
+        </a>
+        <nav class="nav" id="nav">
+            <a class="nav__link" href="/tracking" >Tracking </a>
+            <a class="nav__link" href="/blog">Blog</a>
+            <a class="nav__link" href="/text">Privacy Policy</a>
+            <a class="nav__link" href="/text">Terms & Conditions</a>
+        </nav>
+        <button class="burger" type="button" id="navToggle">
+            <span class="burger__line">1</span>
+            <span class="burger__line">2</span>
+            <span class="burger__line">3</span>
+            <span class="burger__line">4</span>
+        </button>
+        </div>
+    </div>
+</header><!--/.Header-->
+
+<!-- Login Form -->
+<div class="container">
+    <form class="login-form" id="loginForm">
+        <h2>Login</h2>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Login</button>
+        </div>
+        <div class="create-account">
+            <h3>Don't have an account?</h3>
+            <a href="/register"><h4>Create account</h4></a>
+        </div>
+    </form>
+</div>
+
+
+  <!--Footer-->
+  <footer class="footer">
+    <div class="conteiner">
+        <img src="static/images/footer/logo.svg" alt="">
+        <address class="footer__contacts">
+            <p>New York, Street, ZIP code
+            </p>
+            <p>Call Us:<a href="tel:+1234567890"> +1234567890</a> or E-mail:<a href="mailto:info@mistlogistics.com">info@mistlogistics.com</a></p>
+        </address>
+        <nav class="footer__nav">
+            <a href="/text">Terms & Contidions</a>
+            <a href="/text"> Privacy Policy</a>
+            <a href="/blog">  Our blog</a>
+        </nav>
+    </div>
+</footer><!--/.Footer-->
+
+
+<!-- Script JS -->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.slim.min.js"></script>
+<script src="static/js/app.js"></script>
+<script src="static/js/slick.min.js"></script>
+<script src="static/js/aos.js"></script>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var form = this;
+        fetch('/login', {
+            method: 'POST',
+            body: new FormData(form)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.access_token) {
+                // Redirect to dashboard or any other page after successful login
+                window.location.href = '/user/overview';
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
+
+</body>
+</html>

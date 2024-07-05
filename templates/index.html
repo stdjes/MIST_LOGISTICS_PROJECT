@@ -31,11 +31,18 @@
                         </a>
                         <nav class="nav" id="nav">
                             <a class="nav__link" href="#" data-scroll="#services">Services  </a>
+                            <a class="nav__link" href="/tracking" >Tracking </a>
                             <a class="nav__link" href="#" data-scroll="#clients"> Clients  </a>
                             <a class="nav__link" href="#" data-scroll="#benefits">Benefits</a>
                             <a class="nav__link" href="#" data-scroll="#team">Team</a>
                             <a class="nav__link" href="#" data-scroll="#news" >News</a>
                             <a class="nav__link" href="#" data-modal="#becomeClientModal">Contact Us</a>
+                            <a class="nav__link" href="/login">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Avatar" class="nav__avatar">
+                                Client Portal
+                            </a>
+                            
+
                         </nav>
                         <button class="burger" type="button" id="navToggle">
                             <span class="burger__line">1</span>
@@ -43,7 +50,7 @@
                             <span class="burger__line">3</span>
                             <span class="burger__line">4</span>
                         </button>
-                </div>
+                    </div>
                 </div>
             </header><!--/.Header-->
             
@@ -72,8 +79,8 @@
                         
                         <div class="request-form request-form--intro"  data-aos="fade-right">
                             <div class="request-form__header">
-                                <h3 class="request-form__title">Get Callback</h3>
-                                <div class="request-form__text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</div>
+                                <h3 class="request-form__title">Get a Callback</h3>
+                                <div class="request-form__text">Need assistance? Fill out the form and our team will call you back promptly to discuss your logistics needs.</div>
                             </div>
                             <div class="request-form__content">
                                 <form class="form" action="/" method="POST">
@@ -95,10 +102,10 @@
                         </div>
                         
                         <div class="intro__text"  data-aos="fade-left">
-                            <div class="intro__countries">USA, Europe, Asia</div>
+                            <div class="intro__countries">Worldwide Shipment Services</div>
                             <h1 class="intro__title">
                                 <span class="intro__title-amp">&amp;</span>
-                                Trans<br>Logistic
+                                Haulage<br>Logistics
                             </h1>
                         </div>
                         <div class="intro__slider-arrows">
@@ -118,10 +125,12 @@
                     <div class="services">
                         <h2 class="services__main-title">Services</h2>
                         
-                        <div class="services__item"  data-aos="fade-down">
+                        <div class="services__item" data-aos="fade-down">
+                            
                             <h4 class="services__title">Ground Shipping</h4>
+                            <img src="static/images/services/ground.jpg" alt="Description" class="services__image" >
                             <div class="services__text">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p>
+                                <p>Our ground shipping services are efficient and reliable, ensuring your goods are delivered safely and on time, every time.</p>
                             </div>
                             <div class="services__footer">
                                 <a class="services__link" href="#">Learn more</a>
@@ -129,9 +138,10 @@
                         </div>
                         
                         <div class="services__item" data-aos="fade-down" data-aos-delay="50">
-                            <h4 class="services__title">Railway Shipping</h4>
+                            <h4 class="services__title">Doorstep Delivery</h4>
+                            <img src="static/images/services/doorstep.jpg" alt="Description" class="services__image" >
                             <div class="services__text">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt</p>
+                                <p>Experience the convenience of our doorstep delivery service, bringing your packages directly to your home or office.</p>
                             </div>
                             <div class="services__footer">
                                 <a class="services__link" href="#">Learn more</a>
@@ -139,9 +149,10 @@
                         </div>
                         
                         <div class="services__item" data-aos="fade-down" data-aos-delay="150">
-                            <h4 class="services__title">Water Shipping</h4>
+                            <h4 class="services__title">Sea Cargo Shipping</h4>
+                            <img src="static/images/services/water.jpg" alt="Description" class="services__image" >
                             <div class="services__text">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p>
+                                <p>Our sea cargo shipping services offer cost-effective solutions for transporting large volumes of goods across the globe.</p>
                             </div>
                             <div class="services__footer">
                                 <a class="services__link" href="#">Learn more</a>
@@ -149,9 +160,10 @@
                         </div>
                         
                         <div class="services__item" data-aos="fade-down" data-aos-delay="250">
-                            <h4 class="services__title">Air Shipping</h4>
+                            <h4 class="services__title">Air Cargo Shipping</h4>
+                            <img src="static/images/services/air.jpg" alt="Description" class="services__image" >
                             <div class="services__text">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt</p>
+                                <p>Our air cargo services are perfect for time-sensitive shipments, offering fast and reliable delivery worldwide.</p>
                             </div>
                             <div class="services__footer">
                                 <a class="services__link" href="#">Learn more</a>
@@ -172,42 +184,62 @@
                             <ul class="clients__list">
                                 <li data-aos="fade-right" data-aos-delay="0">
                                     <a href="#" target="_blank">
-                                        <img class="clients__list-logo" src="static/images/clients/atica.png" alt="">
+                                        <img class="clients__list-logo" src="static/images/clients/alx.png" alt="" width="150" height="auto">
                                     </a>
                                 </li>
                                 <li  data-aos="fade-right" data-aos-delay="50">
                                     <a href="#" target="_blank">
-                                        <img class="clients__list-logo" src="static/images/clients/hex-lab1.png" alt="">
+                                        <img class="clients__list-logo" src="static/images/clients/css.png" alt="" width="100" height="auto">
                                     </a>
                                 </li>
                                 <li  data-aos="fade-right" data-aos-delay="100">
                                     <a href="#" target="_blank">
-                                        <img class="clients__list-logo" src="static/images/clients/amara.png" alt="">
+                                        <img class="clients__list-logo" src="static/images/clients/flask.png" alt="" width="100" height="auto">
                                     </a>
                                 </li>
                                 <li  data-aos="fade-right" data-aos-delay="150">
                                     <a href="#" target="_blank">
-                                        <img class="clients__list-logo" src="static/images/clients/muzica-2.png" alt="">
+                                        <img class="clients__list-logo" src="static/images/clients/html.png" alt="" width="100" height="auto">
                                     </a>
                                 </li>
                                 <li  data-aos="fade-right" data-aos-delay="200">
                                     <a href="#" target="_blank">
-                                        <img class="clients__list-logo" src="static/images/clients/solaytic.png" alt="">
+                                        <img class="clients__list-logo" src="static/images/clients/javascript.png" alt="" width="100" height="auto">
                                     </a>
                                 </li>
                                 <li  data-aos="fade-right" data-aos-delay="250">
                                     <a href="#" target="_blank">
-                                        <img class="clients__list-logo" src="static/images/clients/hexa.png" alt="">
+                                        <img class="clients__list-logo" src="static/images/clients/mastercard.png" alt="" width="100" height="auto">
                                     </a>
                                 </li>
                                 <li  data-aos="fade-right" data-aos-delay="300">
                                     <a href="#" target="_blank">
-                                        <img class="clients__list-logo" src="static/images/clients/utosia-2.png" alt="">
+                                        <img class="clients__list-logo" src="static/images/clients/mysql.png" alt="" width="100" height="auto">
                                     </a>
                                 </li>
                                 <li  data-aos="fade-right" data-aos-delay="350">
                                     <a href="#" target="_blank">
-                                        <img class="clients__list-logo" src="static/images/clients/fox-hub.png" alt="">
+                                        <img class="clients__list-logo" src="static/images/clients/python.png" alt="" width="100" height="auto">
+                                    </a>
+                                </li>
+                                <li  data-aos="fade-right" data-aos-delay="350">
+                                    <a href="#" target="_blank">
+                                        <img class="clients__list-logo" src="static/images/clients/vscode.png" alt="" width="100" height="auto">
+                                    </a>
+                                </li>
+                                <li  data-aos="fade-right" data-aos-delay="350">
+                                    <a href="#" target="_blank">
+                                        <img class="clients__list-logo" src="static/images/clients/linux.png" alt="" width="100" height="auto">
+                                    </a>
+                                </li>
+                                <li  data-aos="fade-right" data-aos-delay="350">
+                                    <a href="#" target="_blank">
+                                        <img class="clients__list-logo" src="static/images/clients/git.png" alt="" width="100" height="auto">
+                                    </a>
+                                </li>
+                                <li  data-aos="fade-right" data-aos-delay="350">
+                                    <a href="#" target="_blank">
+                                        <img class="clients__list-logo" src="static/images/clients/github.png" alt="" width="100" height="auto">
                                     </a>
                                 </li>
                             </ul>
@@ -219,27 +251,45 @@
                                         <img class="reviews__photo" src="static/images/clients/avatar.png" alt="">
                                         
                                         <div class="reviews__header-content">
-                                            <div class="reviews__name">John Smith</div>
-                                            <div class="reviews__company">FOX Hub CEO</div>
+                                            <div class="reviews__name">Michael Nketia</div>
+                                            <div class="reviews__company">ALX SE Student</div>
                                         </div>
                                     </div>
                                     <div class="reviews__content">
-                                        <p class="reviews__p">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p><p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed </p>
+                                        <p class="reviews__p">"MIST Logistics has transformed our supply chain operations. Their reliable and timely services ensure our products reach our customers without delays. Highly recommend!"</p>
+                                        <p>"Their customer support is exceptional, always ready to assist with any queries we have. Truly a game-changer in the logistics industry."</p>
                                     </div>
                                     
                                 </div>
         
                                 <div class="reviews__item">
                                     <div class="reviews__header">
-                                        <img class="reviews__photo" src="static/images/clients/avatar.png" alt="">
+                                        <img class="reviews__photo" src="static/images/clients/avatar2.png" alt="">
                                         
                                         <div class="reviews__header-content">
-                                            <div class="reviews__name">John Smith</div>
-                                            <div class="reviews__company">FOX Hub CEO</div>
+                                            <div class="reviews__name">Stephen Eze</div>
+                                            <div class="reviews__company">ALX SE Student</div>
                                         </div>
                                     </div>
                                     <div class="reviews__content">
-                                        <p class="reviews__p">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p><p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed </p>
+                                        <p class="reviews__p">"We have been working with MIST Logistics for over a year now, and their professionalism and dedication are unparalleled. Our logistics needs are always met with precision."</p>
+                                        <p>"Their global network and expertise have allowed us to expand our reach effortlessly. We couldn't ask for a better logistics partner."</p>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="reviews__item">
+                                    <div class="reviews__header">
+                                        <img class="reviews__photo" src="static/images/clients/avatar.png" alt="">
+                                        
+                                        <div class="reviews__header-content">
+                                            <div class="reviews__name">Michael Nketia</div>
+                                            <div class="reviews__company">ALX SE Student</div>
+                                        </div>
+                                    </div>
+                                    <div class="reviews__content">
+                                        <p class="reviews__p">"Switching to MIST Logistics was the best decision for our company. Their seamless integration with our existing systems made the transition smooth and hassle-free."</p>
+                                <p>"Their attention to detail and commitment to excellence is evident in every shipment. We are extremely satisfied with their service."</p>
                                     </div>
                                     
                                 </div>
@@ -251,7 +301,7 @@
                         <span>Become a client</span>
         
                     </button>
-                    <span class="clients-love">we love our clients</span>
+                    <span class="clients-love">We love our clients</span>
                </div>
             </section>    <!--/.Clients-->
         
@@ -265,27 +315,27 @@
                             <ul class="benefits-list">
                                 
                                 <li class="benefits-list__item" data-aos="fade-down" data-aos-delay="0" data-aos-anchor=".benefits">
-                                    <h4 class="benefits-list__title">Safety</h4>
+                                    <h4 class="benefits-list__title">24/7 Customer Support</h4>
                                     <div class="benefits-list__text">
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
+                                        <p>Our dedicated support team is always available to assist you with any queries or concerns.</p>
                                     </div>
                                 </li>
                                 <li class="benefits-list__item" data-aos="fade-down" data-aos-delay="100" data-aos-anchor=".benefits">
-                                    <h4 class="benefits-list__title">High quality</h4>
+                                    <h4 class="benefits-list__title">Global Network</h4>
                                     <div class="benefits-list__text">
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
+                                        <p>With a vast network of partners, we offer seamless logistics solutions worldwide.</p>
                                     </div>
                                 </li>
                                 <li class="benefits-list__item" data-aos="fade-down" data-aos-delay="200" data-aos-anchor=".benefits">
-                                    <h4 class="benefits-list__title">Guarantee &amp; Support 24/7</h4>
+                                    <h4 class="benefits-list__title">Reliability</h4>
                                     <div class="benefits-list__text">
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
+                                        <p>We prioritize the safety and timely delivery of your goods.</p>
                                     </div>
                                 </li>
                                 <li class="benefits-list__item" data-aos="fade-down" data-aos-delay="300" data-aos-anchor=".benefits">
-                                    <h4 class="benefits-list__title">Personal manager</h4>
+                                    <h4 class="benefits-list__title">Cost-effective Solutions</h4>
                                     <div class="benefits-list__text">
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
+                                        <p>Our services are designed to offer the best value for your money.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -305,34 +355,34 @@
                     <div class="team">
                         <div class="team__col">
                             <div class="team__item" data-aos="fade-in" data-aos-delay="100">
-                                <img class="team__photo" src="static/images/team/John1.png" alt="">
-                                <div class="team__name">John Smith</div>
-                                <div class="team__prof">Logistic manager - 8 years experience</div>
+                                <img class="team__photo" src="static/images/team/mike.png" alt="">
+                                <div class="team__name">Michael Nketia</div>
+                                <div class="team__prof">Backend Developer / Software Engineer</div>
                                 <ul class="team__contacts">
-                                    <li><img class="team__contacts-icon" src="static/images/team/ioniconssvgiosmail.svg" alt=""><a href="mailto">john@centerlogistic.com</a></li>
-                                    <li><img class="team__contacts-icon" src="static/images/team/ioniconssvgioscall.svg" alt=""><a href="tel:+987412512543">+987412512543</a></li>
+                                    <li><img class="team__contacts-icon" src="static/images/team/ioniconssvgiosmail.svg" alt=""><a href="mailto">mike@mistlogistics.com</a></li>
+                                    <li><img class="team__contacts-icon" src="static/images/team/ioniconssvgioscall.svg" alt=""><a href="tel:+1234567890">+1234567890</a></li>
                             </ul>
                         </div>
                         </div>
                         <div class="team__col">
                             <div class="team__item" data-aos="fade-in" data-aos-delay="200">
-                                <img class="team__photo" src="static/images/team/Daniel.png" alt="">
-                                <div class="team__name">Daniel Kore</div>
-                                <div class="team__prof">Software engineer</div>
+                                <img class="team__photo" src="static/images/team/djes.png" alt="">
+                                <div class="team__name">Stephen Eze</div>
+                                <div class="team__prof">Frontend Designer / Software Engineer</div>
                                 <ul class="team__contacts">
-                                    <li><img class="team__contacts-icon" src="static/images/team/ioniconssvgiosmail.svg" alt=""><a href="mailto">daniel@centerlogistic.com</a></li>
-                                    <li><img class="team__contacts-icon" src="static/images/team/ioniconssvgioscall.svg" alt=""><a href="tel:+987423252253">+987423252253</a></li>
+                                    <li><img class="team__contacts-icon" src="static/images/team/ioniconssvgiosmail.svg" alt=""><a href="mailto">stephen@mistlogistics.com</a></li>
+                                    <li><img class="team__contacts-icon" src="static/images/team/ioniconssvgioscall.svg" alt=""><a href="tel:+1234567890">+1234567890</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="team__col">
                             <div class="team__item" data-aos="fade-in" data-aos-delay="300">
-                                <img class="team__photo" src="static/images/team/Anna.jpg" alt="">
-                                <div class="team__name">Anna Filler</div>
-                                <div class="team__prof">Marketing specialist - 10 years experience</div>
+                                <img class="team__photo" src="static/images/team/girl.jpg" alt="">
+                                <div class="team__name">Jane Doe</div>
+                                <div class="team__prof">Marketing Specialist</div>
                                 <ul class="team__contacts">
-                                    <li><img class="team__contacts-icon" src="static/images/team/ioniconssvgiosmail.svg" alt="" ><a href="mailto">anna@centerlogistic.com</a></li>
-                                    <li><img class="team__contacts-icon" src="static/images/team/ioniconssvgioscall.svg" alt=""><a href="tel:+98735353456">+98735353456</a></li>
+                                    <li><img class="team__contacts-icon" src="static/images/team/ioniconssvgiosmail.svg" alt="" ><a href="mailto">jane@mistlogistics.com</a></li>
+                                    <li><img class="team__contacts-icon" src="static/images/team/ioniconssvgioscall.svg" alt=""><a href="tel:+1234567890">+1234567890</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -347,10 +397,10 @@
                     <h2 class="mission-title">Our mission</h2>
                     <div class="mission" data-aos="fade-up" data-aos-delay="200">
                         <h3 class="mission__title">
-                            To provide our customer qualified services according the international
+                            "To provide our customers with unparalleled services that meet the highest international standards."
                         </h3>
                         <h4 class="mission__subtitle">
-                            Book your Cargo now &amp; Your job just got a lot easier
+                            "Book your cargo now and make your job significantly easier."
                         </h4>
                     </div>
                     <div class="text-center">
@@ -365,17 +415,17 @@
                     <h2 class="section__title"><span>Interesting</span> to read</h2>
                     <div class="article">
                         <article class="article__item" data-aos="fade-right" data-aos-delay="150">
-                            <h4 class="article__title"><a href="#">News title</a></h4>
-                            <div class="article__text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div>
-                            <time class="article__date" datetime="2021-03-31 22:19">31 march, 2021</time>
+                            <h4 class="article__title"><a href="#">Expansion of Our Fleet</a></h4>
+                            <div class="article__text">We are excited to announce the expansion of our fleet with the addition of new vehicles to enhance our service capabilities.</div>
+                            <time class="article__date" datetime="2024-06-30 11:10">30 June, 2024</time>
                         </article>
                         <article class="article__item" data-aos="fade-left" data-aos-delay="150">
-                            <h4 class="article__title"><a href="#">News title</a></h4>
-                            <div class="article__text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div>
-                            <time class="article__date" datetime="2021-03-31 22:19">31 march, 2021</time>
+                            <h4 class="article__title"><a href="#">Award for Excellence</a></h4>
+                            <div class="article__text">We are proud to have received the prestigious award for excellence in logistics and customer service.</div>
+                            <time class="article__date" datetime="2024-06-30 13:07">30 June, 2024</time>
                         </article>
                     </div>
-                    <a class="btn btn--orange btn--shadow" href="blog.html">Visit blog</a>
+                    <a class="btn btn--orange btn--shadow" href="/blog">Visit blog</a>
                 </div>
             </section><!--/.News-->
         
@@ -386,15 +436,32 @@
                     <address class="footer__contacts">
                         <p>New York, Street, ZIP code
                         </p>
-                        <p>Call Us:<a href="tel:+9948373123"> +9948373123</a> or E-mail:<a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a></p>
+                        <p>Call Us:<a href="tel:+1234567890"> +1234567890</a> or E-mail:<a href="mailto:info@mistlogistics.com">info@mistlogistics.com</a></p>
                     </address>
                     <nav class="footer__nav">
-                        <a href="text.html">Terms & Contidions</a>
-                        <a href="text.html"> Privacy Policy</a>
-                        <a href="blog.html">  Our blog</a>
+                        <a href="/text">Terms & Contidions</a>
+                        <a href="/text"> Privacy Policy</a>
+                        <a href="/blog">  Our blog</a>
                     </nav>
                 </div>
             </footer><!--/.Footer-->
+
+            <a href="#" class="floating-button">
+                <svg class="floating-button__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L4 12h5v8h6v-8h5L12 3z"/></svg>
+            </a>
+        
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const button = document.querySelector('.floating-button');
+                    button.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            </script>
         
             <!--Modals-->
             <div class="modal" id="becomeClientModal">
@@ -425,10 +492,10 @@
                         <div class="modal__footer">
                             <h4 class="modal__footer-title">Our contacts</h4>
                             <address class="modal__contacts">
-                                <p>New York, Street, ZIP code</p>
-                                <p>Phone:<a href="tel:+9948373123">+9948373123</a>
+                                <p>City, Street, ZIP code</p>
+                                <p>Phone:<a href="tel:+1234567890">+1234567890</a>
                                 </p>
-                                <p>E-mail:<a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a></p>
+                                <p>E-mail:<a href="mailto:hello@centerlogistic.com">info@mistlogistics.com</a></p>
         
                             </address>
                         </div>
@@ -453,7 +520,7 @@
                         <div class="modal__footer">
                             <h4 class="modal__footer-title">Our contacts</h4>
                             <address class="modal__contacts">
-                                <p>New York, Street, ZIP code</p>
+                                <p>City, Street, ZIP code</p>
                                 <p>Phone:<a href="tel:+9948373123">+9948373123</a>
                                 </p>
                                 <p>E-mail:<a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a></p>
@@ -473,6 +540,7 @@
             <script src="static/js/slick.min.js"></script>
             <script src="static/js/aos.js"></script>
             <script src="static/js/app.js"></script>
+
         </div>
         </body>
 </html>

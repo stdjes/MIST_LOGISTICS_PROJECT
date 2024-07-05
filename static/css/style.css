@@ -6,9 +6,36 @@ body {
     line-height: 1.4;
     color: #585858;
 
+    position: relative;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.floating-button {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none; /* Remove underline from link */
+    z-index: 1000; /* Ensure it's on top of other elements */
+}
+.floating-button__icon {
+    width: 24px; /* Adjust as needed */
+    height: 24px; /* Adjust as needed */
+    fill: white; /* Ensure the icon is visible */
+}
+
+
+
+
 
 .no-scroll,
 .show-nav {
@@ -85,6 +112,13 @@ body.show-nav .header {
    
 }
 
+.header--red,
+body.show-nav .header {
+    background-color: rgba(255, 0, 0, 0.9);
+    
+   
+}
+
 .header__inner {
     display: flex;
     justify-content: space-between;
@@ -117,8 +151,25 @@ body.show-nav .header {
 }
 
 .nav__link.active {
-    background-color: #004AF2 ;
+    background-color: red ;
 
+}
+
+.nav__avatar::before {
+    content: "";
+    display: inline-block;
+    width: 1px; /* Width of the separator line */
+    height: 30px; /* Height of the separator, matching the avatar */
+    background-color: #ccc; /* Color of the separator */
+    margin-right: 8px; /* Space between the separator and the avatar */
+}
+
+
+.nav__avatar {
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Ensure the height matches the width for a square image */
+    border-radius: 50%; /* Make the image round */
+    margin-right: 8px; /* Add some space between the avatar and the text */
 }
 
 /* Burger*/
@@ -361,9 +412,11 @@ body.show-nav .header {
 .request-form {
     width: 100%;
     max-width: 400px;
-    background-color: #004AF2;
+    background-color: #1F1F1F;
     border-radius: 5px;
     overflow: hidden;
+    opacity: 0.8;
+    transition: opacity 0.2s linear;
 }
 
 .request-form--intro {
@@ -382,7 +435,9 @@ body.show-nav .header {
 
 
 .request-form__header {
-    background-color: #033FC9;
+    background-color: #0F0F0F;
+    opacity: 0.8;
+    transition: opacity 0.2s linear;
 
     padding: 20px 30px;
     
@@ -535,7 +590,8 @@ body.show-nav .header {
 }
 
 .btn--orange {
-    background: linear-gradient(to right, #FF903E, #FF2C2C);
+    /* background: linear-gradient(to right, #FF903E, #FF2C2C); */
+    background: #ff1313;
     
 }
 
@@ -567,7 +623,7 @@ body.show-nav .header {
 }
 
 .section__title span {
-    color: #004AF2;
+    color: #ff0000;
 }
 
 .section--gray {
@@ -627,6 +683,14 @@ body.show-nav .header {
 
 }
 
+.services__image {
+    display: block;
+    margin: 0 0 10px 0;
+    border-radius: 10px; /* Adjust for more or less rounded corners */
+    width: 80%; /* Adjust width as needed */
+    max-width: 100%; /* Ensure the image does not exceed the container's width */
+}
+
 .services__text {
     font-size: 16px;
     
@@ -642,7 +706,7 @@ body.show-nav .header {
 
 .services__link {
     font-size: 16px;
-    color: #004AF2;
+    color: #ff0000;
     text-decoration: none;
     transition: color .2s linear;
 
@@ -655,7 +719,7 @@ body.show-nav .header {
     display: block;
     width: 10px;
     height: 2px;
-    background-color: #004AF2;
+    background-color: #FF0000;
 
     transition: width .2s linear;
     margin-top: 5px;
@@ -664,12 +728,12 @@ body.show-nav .header {
 }
 
 .services__link:hover {
-    color: #FF3E2F;
+    color: #313131;
 }
 
 .services__link:hover::after {
     width: 100%;
-    background-color: #FF3E2F;
+    background-color: #ff6358;
 }
 
 /* Clients */
@@ -758,7 +822,7 @@ body.show-nav .header {
 }
 
  .slick-active button {
-    background: #004AF2;
+    background: #ff0000;
     box-shadow: 0 0 0 7px rgba(0, 74, 242, .11);
 }
 
@@ -1009,7 +1073,7 @@ body.show-nav .header {
 }
 
 .mission::before {
-    background-color:  #004AF2;
+    background-color:  #404040;
     right: 50%;
 }
 
@@ -1022,7 +1086,7 @@ body.show-nav .header {
 .mission__title {
     
     font-size: 30px;
-    color: #004AF2;
+    color: #ff0000;
     font-weight: 700;
     line-height: 1.2;
 
@@ -1138,7 +1202,7 @@ body.show-nav .header {
 .footer__nav a {
     margin: 0 5px;
 
-    color: #004AF2;
+    color: #ff0000;
     text-decoration: none;
 }
 
@@ -1198,7 +1262,7 @@ body.show-nav .header {
 .modal__title {
     font-family: 'Lato', sans-serif;
     font-size: 24px;
-    color: #004AF2;
+    color: #FF0000;
     font-weight: 900;
     line-height: 1.2;
 
@@ -1476,6 +1540,7 @@ body.show-nav .header {
     }
 
    
+
 
 
     /* Nav */
