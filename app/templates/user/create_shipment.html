@@ -1,0 +1,184 @@
+
+
+{% extends "user/base2.html" %}
+
+{% block title %}Invoices{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        color: #ff3333;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    input[type="text"], input[type="number"], select {
+        width: calc(100% - 22px);
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+    }
+
+    input[type="file"] {
+        margin-top: 5px;
+    }
+
+    button {
+        background-color: #ff3333;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #e62e2e;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+        outline: none;
+        border-color: #ff3333;
+    }
+
+    .form-group input[type="file"] {
+        border: none;
+        background-color: #f0f0f0;
+        padding: 8px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .form-group input[type="file"]:hover {
+        background-color: #e0e0e0;
+    }
+</style>
+
+<div class="container">
+    <h2>Create Shipment</h2>
+    {% if success_message %}
+        <div class="alert alert-success">
+            {{ success_message }}
+        </div>
+    {% endif %}
+    <form id="createShipmentForm" method="POST">
+        <div class="form-group">
+            <label for="senderName">Sender's Name</label>
+            <input type="text" id="senderName" name="senderName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="senderAddress">Sender's Address</label>
+            <input type="text" id="senderAddress" name="senderAddress" required>
+        </div>
+
+        <div class="form-group">
+            <label for="receiverName">Receiver's Name</label>
+            <input type="text" id="receiverName" name="receiverName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="receiverAddress">Receiver's Address</label>
+            <input type="text" id="receiverAddress" name="receiverAddress" required>
+        </div>
+        <div class="form-group">
+            <label for="packageWeight">Package Weight (kg)</label>
+            <input type="number" id="packageWeight" name="packageWeight" required>
+        </div>
+
+        <div class="form-group">
+            <label for="packageType">Package Type</label>
+            <select id="packageType" name="packageType" required>
+                <option value="Box">Box</option>
+                <option value="Envelope">Envelope</option>
+                <option value="Parcel">Parcel</option>
+                <option value="Crate">Crate</option>
+                <option value="fragile">Fragile</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="estimatedPrice">Estimated Price</label>
+            <input type="text" id="estimatedPrice" name="estimatedPrice" readonly>
+        </div>
+
+        <div class="form-group">
+            <button type="button" id="calculateButton">Calculate</button>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('calculateButton').addEventListener('click', function() {
+        // Get values from form inputs
+        var weight = document.getElementById('packageWeight').value;
+        var type = document.getElementById('packageType').value;
+
+        // Call function to calculate estimated price
+        var estimatedPrice = calculate_estimated_price(weight, type);
+
+        // Update the estimated price input field
+        document.getElementById('estimatedPrice').value = estimatedPrice.toFixed(2);  // Format to two decimal places
+    });
+
+    function calculate_estimated_price(weight, packageType) {
+        var basePricePerKg = 5.0;  // Example base price per kilogram
+        var additionalCharge = {
+            'fragile': 2.0,    // Additional charge for fragile items
+            'Crate': 3.0,      // Additional charge for crates
+            'Box': 1.5,        // Additional charge for boxes
+            'Envelope': 1.0,   // Additional charge for envelopes
+            'Parcel': 2.5,     // Additional charge for parcels
+            'Other': 1.0       // Additional charge for other types (example value)
+            // Add more as needed for other specific types
+        };
+
+        // Calculate estimated price based on weight and type
+        var estimatedPrice = weight * basePricePerKg;
+
+        // Add additional charges based on package type
+        if (packageType in additionalCharge) {
+            estimatedPrice += additionalCharge[packageType];
+        }
+
+        return estimatedPrice;
+    }
+</script>
+
+
+{% endblock %}

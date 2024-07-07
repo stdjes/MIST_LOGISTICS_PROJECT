@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Client Dashboard - MIST Logistics</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -76,7 +76,7 @@
 #sidebar {
   grid-area: sidebar;
   height: 100%;
-  background-color: #263043;
+  background-color: #242424;
   overflow-y: auto;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -112,13 +112,13 @@
 }
 
 .sidebar-list-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 67, 67, 0.2);
   cursor: pointer;
 }
 
 .sidebar-list-item > a {
   text-decoration: none;
-  color: #9e9ea4;
+  color: #eeeeee;
 }
 
 .sidebar-responsive {
@@ -140,7 +140,7 @@
   grid-area: main;
   overflow-y: auto;
   padding: 20px 20px;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(46, 46, 46, 0.95);
 }
 
 .main-title {
@@ -247,38 +247,46 @@
     <div class="grid-container">
 
       <!-- Header -->
-      <header class="header" style=" background-color:#262b36;">
+      <header class="header" style=" background-color:#ff2929;">
         <div class="menu-icon" onclick="openSidebar()">
             <span class="material-icons-outlined">menu</span>
           </div>
-        <h5 align = "center" style="color: #08d0e7; align-items: center; justify-content: center;"> MIST LOGISTICS LLC</h5>
+        {% if username %}
 
+        <h5 align="center" style="color: #ffffff; align-items: center; justify-content: center;"> Welcome, {{username}}</h5>
+        {% endif %}
 
       </header>
       <!-- End Header -->
 
       <!-- Sidebar -->
       <aside id="sidebar">
+
+        
         <div class="sidebar-title">
+          <a href="/user/overview">
+          <img src="../../static/images/headericon/logo.svg" />
+          </a>
           <div class="sidebar-brand">
-            <span class="material-icons-outlined">diversity_3</span> MIST LOGISTICS LLC
+            
           </div>
           <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
         </div>
 
-        <div class="nav-bar" style="display: flex;justify-content: center;"; >
-            <span class="material-icons-outlined nav-icon" style="font-size: 50px; margin-bottom: 7px; color: blue;">account_circle</span>
+        <div  class="sidebar-brand" style="display: flex;justify-content: center;">
+
+          
+          <a href="/user/settings" align="center">
+          <span class="material-icons-outlined" >account_circle</span>
+            {% if email %}
+          <div><br><h4 align="center" style="font-size:16px;">{{email}}</h4></span></div>
+            {% endif %}
+          </a>
+         
           </div>
 
 
         <ul class="sidebar-list">
-
-            <li class="sidebar-list-item">
-                <p style="color: #08d0e7;">
-
-
-                <p>
-              </li>
 
           <li class="sidebar-list-item">
             <a href="/user/overview" >
@@ -287,7 +295,7 @@
           </li>
           <li class="sidebar-list-item">
             <a href="/user/shipments" >
-              <span class="material-icons-outlined">home</span> My Shipments
+              <span class="material-icons-outlined">flight</span> My Shipments
             </a>
           </li>
           <li class="sidebar-list-item">
@@ -302,7 +310,13 @@
           </li>
           <li class="sidebar-list-item">
             <a href="/user/settings">
-              <span class="material-icons-outlined">analytics</span> Settings
+              <span class="material-icons-outlined">edit</span> Edit Profile
+            </a>
+          </li>
+
+          <li class="sidebar-list-item">
+            <a href="/user/support">
+              <span class="material-icons-outlined">call</span> Support
             </a>
           </li>
 
@@ -353,10 +367,8 @@
       }
     }
 
+
     </script>
-
-
-
 
     </body>
     </html>

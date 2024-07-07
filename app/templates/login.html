@@ -94,23 +94,30 @@
 <script src="static/js/aos.js"></script>
 
 <script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        var form = this;
-        fetch('/login', {
-            method: 'POST',
-            body: new FormData(form)
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message);
-            if (data.access_token) {
-                // Redirect to dashboard or any other page after successful login
-                window.location.href = '/user/overview';
-            }
-        })
-        .catch(error => console.error('Error:', error));
-    });
+   document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var form = this;
+    var formData = {
+        email: form.email.value,
+        password: form.password.value
+    };
+    fetch('/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        if (data.access_token) {
+            window.location.href = '/user/overview';
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+
 </script>
 
 </body>

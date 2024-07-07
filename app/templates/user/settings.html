@@ -1,0 +1,113 @@
+
+
+{% extends "user/base2.html" %}
+
+{% block title %}Invoices{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        color: #ff3333;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    input[type="text"], input[type="email"] {
+        width: calc(100% - 22px);
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+    }
+
+    button {
+        background-color: #ff3333;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #e62e2e;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #ff3333;
+    }
+</style>
+
+<main>
+
+    <div class="container">
+        <h2>Edit Profile</h2>
+        <form id="editProfileForm">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" value="{{username}}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="{{email}}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" value="+1234567890" required>
+            </div>
+
+            <!-- Shipping Addresses Section -->
+            <h3>Shipping Addresses</h3>
+            <div class="shipping-address">
+                <label for="address1">Address 1</label>
+                <input type="text" id="address1" name="address1" value="123 Main St" required>
+            </div>
+
+            <div class="shipping-address">
+                <label for="address2">Address 2</label>
+                <input type="text" id="address2" name="address2" value="Apt 101" required>
+            </div>
+
+            <button type="button" class="add-address-button">Add Another Address</button>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+    
+</main>
+
+{% endblock %}
