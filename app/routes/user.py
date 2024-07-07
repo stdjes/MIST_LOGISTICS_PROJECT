@@ -1,11 +1,8 @@
-from flask import Blueprint,render_template, request, jsonify, session, redirect, url_for
+from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
 from flask_jwt_extended import create_access_token
-from MIST_LOGISTICS_PROJECT.model.models import db,User,Shipment
-from datetime import datetime
-import random
-import string
+from MIST_LOGISTICS_PROJECT.app.model.models import db, User
 
-user_bp = Blueprint("user", __name__, url_prefix="/user")
+user_bp = Blueprint("user", __name__)
 
 @user_bp.route('/')
 def index():
@@ -79,4 +76,4 @@ def support():
 @user_bp.route('/logout')
 def logout():
     session.pop('user_id', None)
-    return redirect(url_for('login'))
+    return redirect(url_for('user_blueprint.login'))
