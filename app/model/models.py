@@ -1,15 +1,10 @@
 from datetime import datetime
-from flask_sqlalchemy import SQLAlchemy
-from MIST_LOGISTICS_PROJECT.app.app import app
-
-db = SQLAlchemy(app)
-
+from MIST_LOGISTICS_PROJECT.app.app import db,bcrypt
 
 
 # Models
 
-with app.app_context():
-    db.create_all()
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -23,6 +18,8 @@ class User(db.Model):
     def check_password(self, password):
         return bcrypt.check_password_hash(self.password, password)
 
+
+
 class Shipment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     record_date = db.Column(db.DateTime, default=datetime.utcnow)
@@ -35,3 +32,4 @@ class Shipment(db.Model):
     estimated_price = db.Column(db.Float, nullable=False)
     recipient = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
