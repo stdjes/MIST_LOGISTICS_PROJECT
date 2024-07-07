@@ -251,8 +251,10 @@
         <div class="menu-icon" onclick="openSidebar()">
             <span class="material-icons-outlined">menu</span>
           </div>
-        <h5 align="center" style="color: #ffffff; align-items: center; justify-content: center;"> Welcome, User5623</h5>
+        {% if username %}
 
+        <h5 align="center" style="color: #ffffff; align-items: center; justify-content: center;"> Welcome, {{username}}</h5>
+        {% endif %}
 
       </header>
       <!-- End Header -->
@@ -275,8 +277,10 @@
 
           
           <a href="/user/settings" align="center">
-          <span class="material-icons-outlined" >account_circle</span> 
-          <div><br><h4 align="center">User Fullname</h4></span></div>
+          <span class="material-icons-outlined" >account_circle</span>
+            {% if email %}
+          <div><br><h4 align="center" style="font-size:16px;">{{email}}</h4></span></div>
+            {% endif %}
           </a>
          
           </div>
@@ -317,7 +321,7 @@
           </li>
 
           <li class="sidebar-list-item">
-            <a href="#" onclick="logout()">
+            <a href="/logout">
               <span class="material-icons-outlined">logout</span> Logout
             </a>
           </li>
@@ -363,16 +367,8 @@
       }
     }
 
-     // Logout function
-     function logout() {
-            // Implement logout functionality
-            console.log('Logging out...');
-        }
 
     </script>
-
-
-
 
     </body>
     </html>
