@@ -1,6 +1,6 @@
 {% extends "user/base2.html" %}
 
-{% block title %}Invoices{% endblock %}
+{% block title %}Settings{% endblock %}
 
 {% block content %}
 
@@ -72,10 +72,15 @@
 
     <div class="container">
         <h2>Edit Profile</h2>
-        <form id="editProfileForm">
+         {% if message %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endif %}
+        <form id="editProfileForm" method="POST">
             <div class="form-group">
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" name="fullName" value="{{username}}" required>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="{{username}}" required>
             </div>
 
             <div class="form-group">
@@ -85,32 +90,30 @@
 
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="text" id="phone" name="phone" value="+1234567890" required>
+                <input type="text" id="phone" name="phone" value="{{phone_number}}" required>
             </div>
 
             <!-- Shipping Addresses Section -->
             <h3>Shipping Addresses</h3>
             <div class="shipping-address">
                 <label for="address1">Address 1</label>
-                <input type="text" id="address1" name="address1" value="123 Main St" required>
+                <input type="text" id="address1" name="address1" value="{{shipping_address}}" required>
             </div>
 
             <div class="shipping-address">
                 <label for="address2">Address 2</label>
-                <input type="text" id="address2" name="address2" value="Apt 101" required>
+                <input type="text" id="address2" name="address2" value="{{second_address}}" required>
             </div>
-
-            <button type="button" class="add-address-button">Add Another Address</button>
 
             <button type="submit">Save Changes</button>
         </form>
     </div>
-    
+
 </main>
 
  <!--Footer-->
  <footer class="footer">
-    <div class="conteiner">
+    <div class="container">
         <img src="../../static/images/footer/logo.svg" alt="">
         <address class="footer__contacts">
             <p>123, Admiralty Way, Lekki. LOS NG, 101233.
@@ -118,9 +121,9 @@
             <p>Call Us:<a href="tel:+1234567890"> +1234567890</a> or E-mail:<a href="mailto:info@mistlogistics.com">info@mistlogistics.com</a></p>
         </address>
         <nav class="footer__nav">
-            <a href="../text">Terms & Contidions</a>
-            <a href=".../text"> Privacy Policy</a>
-            <a href="../blog">  Our blog</a>
+            <a href="../text">Terms & Conditions</a>
+            <a href="../text"> Privacy Policy</a>
+            <a href="../blog"> Our blog</a>
         </nav>
     </div>
 </footer><!--/.Footer-->
