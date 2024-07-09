@@ -11,14 +11,23 @@ shipment_bp = Blueprint("user", __name__)
 def overview():
     email = session.get('email')
     username = session.get('username')
-    # print(username)
-    return render_template("user/overview.html",email=email,username=username)
+    user_id = session.get('user_id')
+
+    shipments_overview = Shipment.query.filter_by(user_id=user_id).all()
+
+    return render_template("user/overview.html",email=email,username=username,shipments_overview=shipments_overview)
+
 
 @shipment_bp.route("/user/shipments", methods=['POST', 'GET'])
 def shipments():
     email = session.get('email')
     username = session.get('username')
-    return render_template("user/shipments.html",email=email,username=username)
+    user_id = session.get('user_id')
+
+    shipments = Shipment.query.filter_by(user_id=user_id).all()
+
+    # Pass the shipments data to the template
+    return render_template("user/shipments.html", email=email, username=username, shipments=shipments)
 
 @shipment_bp.route("/user/create_shipment", methods=['POST', 'GET'])
 def create_shipment():

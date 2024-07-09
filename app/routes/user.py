@@ -14,6 +14,9 @@ def register():
         data = request.form
         username = data.get('username')
         email = data.get('email')
+        phone_number = data.get('phone')
+        shipping_address = data.get('address1')
+        second_address = data.get('address2')
         password = data.get('password')
         confirm_password = data.get('confirm_password')
 
@@ -23,7 +26,7 @@ def register():
         if User.query.filter_by(email=email).first() or User.query.filter_by(username=username).first():
             return jsonify({'message': 'User already exists!'}), 400
 
-        new_user = User(username=username, email=email)
+        new_user = User(username=username, email=email,phone_number=phone_number,shipping_address=shipping_address,second_address=second_address)
         new_user.set_password(password)
 
         try:
@@ -48,6 +51,9 @@ def login():
         session['user_id'] = user.id
         session['email'] = user.email
         session['username'] = user.username
+        session['phone_number'] = user.phone_number
+        session['shipping_address']=user.shipping_address
+        session['second_address'] = user.second_address
         print(session['user_id'])
 
 
@@ -61,11 +67,58 @@ def login():
 
 
 
+# @user_bp.route("/user/settings", methods=['POST', 'GET'])
+# def settings():
+#     email = session.get('email')
+#     username = session.get('username')
+#     phone_number = session.get('phone_number')
+#     shipping_address = session.get('shipping_address')
+#     second_address = session.get('second_address')
+#     return render_template("user/settings.html",email=email,username=username,phone_number=phone_number,shipping_address=shipping_address,second_address=second_address)
+
+
 @user_bp.route("/user/settings", methods=['POST', 'GET'])
 def settings():
-    email = session.get('email')
-    username = session.get('username')
-    return render_template("user/settings.html",email=email,username=username)
+    if request.method == 'POST':
+        # Get the updated information from the form
+        user_id = session.get('user_id')
+        username = request.form['username']
+        email = request.form['email']
+        phone_number = request.form['phone']
+        shipping_address = request.form['address1']
+        second_address = request.form['address2']
+
+
+        # Fetch the user from the database
+        user = User.query.get(user_id)
+        if user:
+            user.username = username
+            user.email = email
+            user.phone_number = phone_number
+            user.shipping_address = shipping_address
+            user.second_address = second_address
+
+            # Save changes to the database
+            db.session.commit()
+            message = "Profile updated successfully!"
+
+        else:
+            message = "User not found."
+
+        # Redirect to the settings page with a message
+        return render_template("user/settings.html",message=message,shipping_addres=shipping_address)
+
+    else:
+        email = session.get('email')
+        username = session.get('username')
+        phone_number = session.get('phone_number')
+        shipping_address = session.get('shipping_address')
+        second_address = session.get('second_address')
+
+
+        return render_template("user/settings.html", email=email, username=username, phone_number=phone_number,
+                               shipping_address=shipping_address, second_address=second_address)
+
 
 @user_bp.route("/user/support", methods=['POST', 'GET'])
 def support():

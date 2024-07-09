@@ -68,30 +68,30 @@
         margin-bottom: 20px;
     }
 
-   /* Table styling */
-   table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+    /* Table styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
 
-        th, td {
-            text-align: left;
-            padding: 8px;
-            border: 1px solid #ddd;
-        }
+    th, td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
 
-        th {
-            background-color: #f2f2f2;
-        }
+    th {
+        background-color: #f2f2f2;
+    }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
 
-        tr:hover {
-            background-color: #f1f1f1;
-        }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
 
     .header {
         background-color: #ff2929;
@@ -153,7 +153,6 @@
     }
 </style>
 
-
 <main class="main-content" id="mainContent">
     <div class="dashboard-overview">
         <h2 style="color:rgb(59, 59, 59)">Shipments Overview</h2>
@@ -172,96 +171,32 @@
                 </tr>
             </thead>
             <tbody>
+                {% for shipment in shipments %}
                 <tr>
-                    <td>1</td>
-                    <td>2024-01-01</td>
-                    <td>Delivered</td>
-                    <td>Lagos, Nigeria</td>
-                    <td>Accra, Ghana</td>
+                    <td>{{ shipment.id }}</td>
+                    <td>{{ shipment.record_date.strftime('%Y-%m-%d') }}</td>
+                    <td>{{ shipment.status }}</td>
+                    <td>{{ shipment.origin }}</td>
+                    <td>{{ shipment.destination }}</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2024-01-02</td>
-                    <td>In Transit</td>
-                    <td>Kano, Nigeria</td>
-                    <td>Kumasi, Ghana</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>2024-01-03</td>
-                    <td>Delivered</td>
-                    <td>Ibadan, Nigeria</td>
-                    <td>Abuja, Nigeria</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>2024-01-04</td>
-                    <td>In Transit</td>
-                    <td>Tamale, Ghana</td>
-                    <td>Kumasi, Ghana</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>2024-01-05</td>
-                    <td>Pending</td>
-                    <td>Sunyani, Ghana</td>
-                    <td>Port Harcourt, Nigeria</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>2024-01-06</td>
-                    <td>Delivered</td>
-                    <td>Enugu, Nigeria</td>
-                    <td>Ho, Ghana</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>2024-01-07</td>
-                    <td>In Transit</td>
-                    <td>Benin City, Nigeria</td>
-                    <td>Bolgatanga, Ghana</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>2024-01-08</td>
-                    <td>Delivered</td>
-                    <td>Jos, Nigeria</td>
-                    <td>Takoradi, Ghana</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>2024-01-09</td>
-                    <td>Pending</td>
-                    <td>Ilorin, Nigeria</td>
-                    <td>Ibadan, Nigeria</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>2024-01-10</td>
-                    <td>Delivered</td>
-                    <td>Owerri, Nigeria</td>
-                    <td>Accra, Ghana</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
-        
-        
     </div>
 </main>
 
- <!--Footer-->
- <footer class="footer">
-    <div class="conteiner">
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
         <img src="../../static/images/footer/logo.svg" alt="">
         <address class="footer__contacts">
-            <p>123, Admiralty Way, Lekki. LOS NG, 101233.
-            </p>
+            <p>123, Admiralty Way, Lekki. LOS NG, 101233.</p>
             <p>Call Us:<a href="tel:+1234567890"> +1234567890</a> or E-mail:<a href="mailto:info@mistlogistics.com">info@mistlogistics.com</a></p>
         </address>
         <nav class="footer__nav">
-            <a href="../text">Terms & Contidions</a>
-            <a href=".../text"> Privacy Policy</a>
-            <a href="../blog">  Our blog</a>
+            <a href="../text">Terms & Conditions</a>
+            <a href="../text">Privacy Policy</a>
+            <a href="../blog">Our blog</a>
         </nav>
     </div>
 </footer><!--/.Footer-->
@@ -319,6 +254,5 @@
         $('#detailedShipmentsTable').DataTable();
     });
 </script>
-
 
 {% endblock %}
