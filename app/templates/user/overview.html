@@ -144,11 +144,13 @@
                     </section>
                     <section class="notifications">
                         <h3>Notifications</h3>
-                        <div class="notification-item">Notification: Your shipment to Los Angeles has been delivered.</div>
+                        {% for shipment in shipments_overview %}
+                        <div class="notification-item">Notification: Your shipment to {{ shipment.destination }} is {{ shipment.status }}.</div>
                         <div class="notification-item">Notification: New invoice generated for your recent shipment.</div>
                         <div class="notification-item">Notification: Account update: Your payment method has been successfully updated.</div>
                         <div class="notification-item">Notification: Upcoming maintenance: Scheduled downtime on July 15th.</div>
                         <div class="notification-item">Notification: System update: New features added to the dashboard.</div>
+                        {% endfor %}
                     </section>
                 </div>
                 
@@ -161,41 +163,32 @@
                                 <th>ID</th>
                                 <th>Date</th>
                                 <th>Status</th>
+                                <th>Origin</th>
+                                <th>Destination</th>
+                                <th>Package Weight</th>
+                                <th>Package Type</th>
+                                <th>Estimated Price</th>
+                                <th>Recipient</th>
 
                             </tr>
                         </thead>
                         <tbody>
+                            {% for shipment in shipments_overview %}
                             <tr>
-                                <td>1</td>
-                                <td>2024-01-01</td>
-                                <td>Delivered</td>
+                                <td>{{ shipment.id }}</td>
+                                <td>{{ shipment.record_date.strftime('%Y-%m-%d') }}</td>
+                                <td>{{ shipment.status }}</td>
+                                <td>{{ shipment.origin }}</td>
+                                <td>{{ shipment.destination }}</td>
 
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2024-01-02</td>
-                                <td>In Transit</td>
 
+                                <td>{{ shipment.package_weight }}</td>
+                                <td>{{ shipment.package_type }}</td>
+                                <td>${{ shipment.estimated_price }}</td>
+                                <td>{{ shipment.recipient }}</td>
                             </tr>
-                            <!-- Additional rows -->
-                            <tr>
-                                <td>3</td>
-                                <td>2024-01-03</td>
-                                <td>Processing</td>
+                            {% endfor %}
 
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>2024-01-04</td>
-                                <td>Shipped</td>
-
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>2024-01-05</td>
-                                <td>Delivered</td>
-
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -205,11 +198,11 @@
             <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-        
+
             <script>
                 // Random notification texts
                 const notifications = [
-                    'Notification: Your shipment to Los Angeles has been delivered.',
+                    'Notification: Your shipment to Lekki is Pending.',
                     'Notification: New invoice generated for your recent shipment.',
                     'Notification: Account update: Your payment method has been successfully updated.',
                     'Notification: Upcoming maintenance: Scheduled downtime on July 15th.',
@@ -257,7 +250,7 @@
                 });
             </script>
 
-            
+
 </main>
 
  <!--Footer-->
