@@ -144,11 +144,13 @@
                     </section>
                     <section class="notifications">
                         <h3>Notifications</h3>
-                        <div class="notification-item">Notification: Your shipment to Los Angeles has been delivered.</div>
+                        {% for shipment in shipments_overview %}
+                        <div class="notification-item">Notification: Your shipment to {{ shipment.destination }} is {{ shipment.status }}.</div>
                         <div class="notification-item">Notification: New invoice generated for your recent shipment.</div>
                         <div class="notification-item">Notification: Account update: Your payment method has been successfully updated.</div>
                         <div class="notification-item">Notification: Upcoming maintenance: Scheduled downtime on July 15th.</div>
                         <div class="notification-item">Notification: System update: New features added to the dashboard.</div>
+                        {% endfor %}
                     </section>
                 </div>
                 
@@ -157,46 +159,26 @@
                     <h2>Recent Shipments</h2>
                     <table id="shipmentsTable">
                         <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Date</th>
-                                <th>Status</th>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for shipment in shipments %}
+                <tr>
+                    <td>{{ shipment.id }}</td>
+                    <td>{{ shipment.record_date.strftime('%Y-%m-%d') }}</td>
+                    <td>{{ shipment.status }}</td>
+                    <td>{{ shipment.origin }}</td>
+                    <td>{{ shipment.destination }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>2024-01-01</td>
-                                <td>Delivered</td>
-
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2024-01-02</td>
-                                <td>In Transit</td>
-
-                            </tr>
-                            <!-- Additional rows -->
-                            <tr>
-                                <td>3</td>
-                                <td>2024-01-03</td>
-                                <td>Processing</td>
-
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>2024-01-04</td>
-                                <td>Shipped</td>
-
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>2024-01-05</td>
-                                <td>Delivered</td>
-
-                            </tr>
-                        </tbody>
                     </table>
                 </div>
             </div>
@@ -205,11 +187,11 @@
             <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-        
+
             <script>
                 // Random notification texts
                 const notifications = [
-                    'Notification: Your shipment to Los Angeles has been delivered.',
+                    'Notification: Your shipment to Lekki is Pending.',
                     'Notification: New invoice generated for your recent shipment.',
                     'Notification: Account update: Your payment method has been successfully updated.',
                     'Notification: Upcoming maintenance: Scheduled downtime on July 15th.',
@@ -257,6 +239,24 @@
                 });
             </script>
 
-            
+
 </main>
+
+ <!--Footer-->
+ <footer class="footer">
+    <div class="conteiner">
+        <img src="../../static/images/footer/logo.svg" alt="">
+        <address class="footer__contacts">
+            <p>123, Admiralty Way, Lekki. LOS NG, 101233.
+            </p>
+            <p>Call Us:<a href="tel:+1234567890"> +1234567890</a> or E-mail:<a href="mailto:info@mistlogistics.com">info@mistlogistics.com</a></p>
+        </address>
+        <nav class="footer__nav">
+            <a href="../text">Terms & Contidions</a>
+            <a href=".../text"> Privacy Policy</a>
+            <a href="../blog">  Our blog</a>
+        </nav>
+    </div>
+</footer><!--/.Footer-->
+
 {% endblock %}

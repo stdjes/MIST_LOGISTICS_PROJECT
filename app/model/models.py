@@ -10,6 +10,9 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True, nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)
+    phone_number = db.Column(db.String(11), unique=True, nullable=False)
+    shipping_address = db.Column(db.String(150), unique=True, nullable=False)
+    second_address = db.Column(db.String(150), unique=True, nullable=True)
     password = db.Column(db.String(255), nullable=False)
 
     def set_password(self, password):

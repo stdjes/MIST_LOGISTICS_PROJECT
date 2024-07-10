@@ -65,30 +65,41 @@
         <h2>Invoices</h2>
         
         <!-- Example Invoice History -->
-        <ul class="invoices-list">
-            <li class="invoice-item">
-                <div><strong>Invoice #001</strong> - Generated on June 1, 2024</div>
-                <div>Total Amount: $150</div>
-                <div>Status: Paid</div>
-                <div class="invoice-actions">
-                    <a href="#">Download</a>
-                    <a href="#">Print</a>
-                </div>
-            </li>
-            <li class="invoice-item">
-                <div><strong>Invoice #002</strong> - Generated on June 15, 2024</div>
-                <div>Total Amount: $200</div>
-                <div>Status: Pending</div>
-                <div class="invoice-actions">
-                    <a href="#">Download</a>
-                    <a href="#">Print</a>
-                </div>
-            </li>
-            <!-- Add more invoice items as needed -->
-        </ul>
+       <!-- Example Invoice History -->
+<ul class="invoices-list">
+    {% for invoice in invoices %}
+    <li class="invoice-item">
+        <div><strong>Invoice #{{ invoice.id }}</strong> - Generated on {{ invoice.date_created }}</div>
+        <div>Total Amount: ${{ invoice.amount }}</div>
+        <div>Status: {{ invoice.status }}</div>
+        <div class="invoice-actions">
+            <a href="{{ url_for('generate_invoice', shipment_id=invoice.id) }}">Download</a>
+            <a href="#">Print</a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
     </div>
 
 
 </main>
+
+ <!--Footer-->
+ <footer class="footer">
+    <div class="conteiner">
+        <img src="../../static/images/footer/logo.svg" alt="">
+        <address class="footer__contacts">
+            <p>123, Admiralty Way, Lekki. LOS NG, 101233.
+            </p>
+            <p>Call Us:<a href="tel:+1234567890"> +1234567890</a> or E-mail:<a href="mailto:info@mistlogistics.com">info@mistlogistics.com</a></p>
+        </address>
+        <nav class="footer__nav">
+            <a href="../text">Terms & Contidions</a>
+            <a href=".../text"> Privacy Policy</a>
+            <a href="../blog">  Our blog</a>
+        </nav>
+    </div>
+</footer><!--/.Footer-->
 
 {% endblock %}

@@ -3,32 +3,22 @@
 {% block title %}Invoices{% endblock %}
 
 {% block content %}
-<style>
-    /* Reset default styles */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
-    /* Basic styling */
+<style>
     body {
         font-family: Arial, sans-serif;
         background-color: #f0f0f0;
-        margin: 0;
-        padding: 0;
+        padding: 20px;
     }
 
     .container {
-        display: flex;
-        max-width: 1200px;
-        margin: 20px auto;
+        max-width: 800px;
+        margin: 0 auto;
         background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        overflow: hidden;
     }
-
     .sidebar {
         width: 250px;
         background-color: #333;
@@ -78,30 +68,30 @@
         margin-bottom: 20px;
     }
 
-   /* Table styling */
-   table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+    /* Table styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
 
-        th, td {
-            text-align: left;
-            padding: 8px;
-            border: 1px solid #ddd;
-        }
+    th, td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
 
-        th {
-            background-color: #f2f2f2;
-        }
+    th {
+        background-color: #f2f2f2;
+    }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
 
-        tr:hover {
-            background-color: #f1f1f1;
-        }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
 
     .header {
         background-color: #ff2929;
@@ -163,7 +153,6 @@
     }
 </style>
 
-
 <main class="main-content" id="mainContent">
     <div class="dashboard-overview">
         <h2 style="color:rgb(59, 59, 59)">Shipments Overview</h2>
@@ -172,101 +161,58 @@
     <div class="table-container">
         <h2 style="color:rgb(59, 59, 59)">Detailed Shipments</h2>
         <table id="detailedShipmentsTable" class="display" style="width:100%">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                    <th>Origin</th>
-                    <th>Destination</th>
+             <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Origin</th>
+                                <th>Destination</th>
+                                <th>Package Weight</th>
+                                <th>Package Type</th>
+                                <th>Estimated Price</th>
+                                <th>Recipient</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2024-01-01</td>
-                    <td>Delivered</td>
-                    <td>New York, NY</td>
-                    <td>Los Angeles, CA</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for shipment in shipments %}
+                            <tr>
+                                <td>{{ shipment.id }}</td>
+                                <td>{{ shipment.record_date.strftime('%Y-%m-%d') }}</td>
+                                <td>{{ shipment.status }}</td>
+                                <td>{{ shipment.origin }}</td>
+                                <td>{{ shipment.destination }}</td>
 
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2024-01-02</td>
-                    <td>In Transit</td>
-                    <td>Chicago, IL</td>
-                    <td>Houston, TX</td>
 
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>2024-01-03</td>
-                    <td>Delivered</td>
-                    <td>Miami, FL</td>
-                    <td>San Francisco, CA</td>
+                                <td>{{ shipment.package_weight }}</td>
+                                <td>{{ shipment.package_type }}</td>
+                                <td>${{ shipment.estimated_price }}</td>
+                                <td>{{ shipment.recipient }}</td>
+                            </tr>
+                            {% endfor %}
 
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>2024-01-04</td>
-                    <td>In Transit</td>
-                    <td>Seattle, WA</td>
-                    <td>Denver, CO</td>
+                        </tbody>
 
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>2024-01-05</td>
-                    <td>Pending</td>
-                    <td>Boston, MA</td>
-                    <td>Phoenix, AZ</td>
-
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>2024-01-06</td>
-                    <td>Delivered</td>
-                    <td>Philadelphia, PA</td>
-                    <td>San Diego, CA</td>
-
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>2024-01-07</td>
-                    <td>In Transit</td>
-                    <td>Austin, TX</td>
-                    <td>Jacksonville, FL</td>
-
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>2024-01-08</td>
-                    <td>Delivered</td>
-                    <td>Detroit, MI</td>
-                    <td>Las Vegas, NV</td>
-
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>2024-01-09</td>
-                    <td>Pending</td>
-                    <td>Memphis, TN</td>
-                    <td>Baltimore, MD</td>
-
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>2024-01-10</td>
-                    <td>Delivered</td>
-                    <td>Charlotte, NC</td>
-                    <td>Portland, OR</td>
-
-                </tr>
-            </tbody>
         </table>
     </div>
 </main>
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <img src="../../static/images/footer/logo.svg" alt="">
+        <address class="footer__contacts">
+            <p>123, Admiralty Way, Lekki. LOS NG, 101233.</p>
+            <p>Call Us:<a href="tel:+1234567890"> +1234567890</a> or E-mail:<a href="mailto:info@mistlogistics.com">info@mistlogistics.com</a></p>
+        </address>
+        <nav class="footer__nav">
+            <a href="../text">Terms & Conditions</a>
+            <a href="../text">Privacy Policy</a>
+            <a href="../blog">Our blog</a>
+        </nav>
+    </div>
+</footer><!--/.Footer-->
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -321,6 +267,5 @@
         $('#detailedShipmentsTable').DataTable();
     });
 </script>
-
 
 {% endblock %}
