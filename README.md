@@ -27,7 +27,7 @@ The aim of this project is to establish a premier logistics brand that delivers 
 ### Frontend
 - 📝 HTML
 - 🎨 CSS
-- ⚛️ React.js
+- ⚛ JavaScript
 - 🅱️ Bootstrap
 
 ### Backend
@@ -37,10 +37,7 @@ The aim of this project is to establish a premier logistics brand that delivers 
 - 🍃 MySQL
 
 ### Third-Party Services
-- 🌍 **Google Maps API**: For location tracking and map-based services
-- 📞 **Customer support**: For customer service and engagement
-- 💳 **Payment Gateways**: For accepting and processing customer payments
-- 📧 **Email services**: For email automation and delivery
+- 📞 **Live Chat - Customer support**: For quick response to customer enquiries and engagement
 
 ## ⚠️ Challenges Identified
 
@@ -108,13 +105,7 @@ Contributions are what make the open-source community such an amazing place to l
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📜 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## 📞 Contact
-
-Stephen Djes - [![Twitter](https://img.shields.io/badge/Twitter-@your_username-blue)](https://twitter.com/stephendjes) - stephendjes@gmail.com
 
 Project Link: [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/stdjes/MIST_LOGISTICS_PROJECT)
 
