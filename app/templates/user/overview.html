@@ -159,37 +159,26 @@
                     <h2>Recent Shipments</h2>
                     <table id="shipmentsTable">
                         <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Origin</th>
-                                <th>Destination</th>
-                                <th>Package Weight</th>
-                                <th>Package Type</th>
-                                <th>Estimated Price</th>
-                                <th>Recipient</th>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for shipment in shipments %}
+                <tr>
+                    <td>{{ shipment.id }}</td>
+                    <td>{{ shipment.record_date.strftime('%Y-%m-%d') }}</td>
+                    <td>{{ shipment.status }}</td>
+                    <td>{{ shipment.origin }}</td>
+                    <td>{{ shipment.destination }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for shipment in shipments_overview %}
-                            <tr>
-                                <td>{{ shipment.id }}</td>
-                                <td>{{ shipment.record_date.strftime('%Y-%m-%d') }}</td>
-                                <td>{{ shipment.status }}</td>
-                                <td>{{ shipment.origin }}</td>
-                                <td>{{ shipment.destination }}</td>
-
-
-                                <td>{{ shipment.package_weight }}</td>
-                                <td>{{ shipment.package_type }}</td>
-                                <td>${{ shipment.estimated_price }}</td>
-                                <td>{{ shipment.recipient }}</td>
-                            </tr>
-                            {% endfor %}
-
-                        </tbody>
                     </table>
                 </div>
             </div>
