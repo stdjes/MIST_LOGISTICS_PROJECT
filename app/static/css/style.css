@@ -105,6 +105,26 @@ p {
     transition: background-color .2s linear;
 }
 
+.headerreg {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 85px;
+    width: 100%;
+    
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+
+    transition: background-color .2s linear;
+}
+
+.headerreg--red,
+body.show-nav .headerreg {
+    background-color: rgba(255, 0, 0, 0.9);
+    
+   
+}
+
 .header--dark,
 body.show-nav .header {
     background-color: rgba(0, 0, 0, 0.9);
