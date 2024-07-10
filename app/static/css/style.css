@@ -15,7 +15,7 @@ body {
 .floating-button {
     position: fixed;
     bottom: 20px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
     width: 50px; /* Adjust as needed */
     height: 50px; /* Adjust as needed */
     background-color: red;
@@ -27,12 +27,13 @@ body {
     text-decoration: none; /* Remove underline from link */
     z-index: 1000; /* Ensure it's on top of other elements */
 }
-.floating-button__icon {
-    width: 24px; /* Adjust as needed */
-    height: 24px; /* Adjust as needed */
-    fill: white; /* Ensure the icon is visible */
-}
 
+.floating-button__icon {
+    fill: white;
+    width: 24px;
+    height: 24px;
+   
+}
 
 
 
