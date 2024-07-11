@@ -76,13 +76,29 @@ def create_shipment():
 
 
 
+# @shipment_bp.route("/user/invoices", methods=['POST', 'GET'])
+# def invoices():
+#     email = session.get('email')
+#     username = session.get('username')
+#     return render_template("user/invoices.html",email=email,username=username)
+
+
 @shipment_bp.route("/user/invoices", methods=['POST', 'GET'])
 def invoices():
     email = session.get('email')
     username = session.get('username')
-    return render_template("user/invoices.html",email=email,username=username)
+    user_id = session.get('user_id')
+
+    # Query shipments from the database
+    shipments = Shipment.query.filter_by(user_id=user_id).all()
+
+    return render_template("user/invoices.html", email=email, username=username, shipments=shipments)
 
 
+@shipment_bp.route("/user/invoice/<int:shipment_id>")
+def view_invoice(shipment_id):
+    shipment = Shipment.query.get_or_404(shipment_id)
+    return render_template("user/invoice_template.html", shipment=shipment)
 
 @shipment_bp.route("/user/invoice", methods=['POST', 'GET'])
 def invoice_templates():
