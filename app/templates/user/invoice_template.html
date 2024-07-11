@@ -1,8 +1,8 @@
-{% extends "user/base2.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-{% block title %}Invoices{% endblock %}
 
-{% block content %}
 <style>
     .invoice-box {
         max-width: 800px;
@@ -127,143 +127,40 @@
         text-align: center;
         text-decoration: none;
     }
+ </style>
+ <script>
+        function printInvoice(invoiceId) {
+            var printContents = document.getElementById(invoiceId).innerHTML;
+            var originalContents = document.body.innerHTML;
 
-</style>
-
-<script>
-    function printInvoice(invoiceId) {
-        var printContents = document.getElementById(invoiceId).innerHTML;
-        var originalContents = document.body.innerHTML;
-
-        var printStyles = `
-            <style>
-                .invoice-box {
-                    max-width: 800px;
-                    margin: auto;
-                    padding: 30px;
-                    border: 1px solid #eee;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-                    font-size: 16px;
-                    line-height: 24px;
-                    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-                    color: #555;
-                }
-
-                .invoice-box table {
-                    width: 100%;
-                    line-height: inherit;
-                    text-align: left;
-                }
-
-                .invoice-box table td {
-                    padding: 5px;
-                    vertical-align: top;
-                }
-
-                .invoice-box table tr td:nth-child(3) {
-                    text-align: right;
-                }
-
-                .invoice-box table tr.top table td {
-                    padding-bottom: 20px;
-                }
-
-                .invoice-box table tr.top table td.title {
-                    font-size: 45px;
-                    line-height: 45px;
-                    color: #333;
-                }
-
-                .invoice-box table tr.information table td {
-                    padding-bottom: 40px;
-                }
-
-                .invoice-box table tr.heading td {
-                    background: #eee;
-                    border-bottom: 1px solid #ddd;
-                    font-weight: bold;
-                }
-
-                .invoice-box table tr.details td {
-                    padding-bottom: 20px;
-                }
-
-                .invoice-box table tr.item td {
-                    border-bottom: 1px solid #eee;
-                }
-
-                .invoice-box table tr.item.last td {
-                    border-bottom: none;
-                }
-
-                .invoice-box table tr.total td:nth-child(2) {
-                    border-top: 2px solid #eee;
-                    font-weight: bold;
-                }
-
-                @media only screen and (max-width: 600px) {
-                    .invoice-box table tr.top table td {
-                        width: 100%;
-                        display: block;
-                        text-align: center;
+            var printStyles = `
+                <style>
+                    .invoice-box {
+                        max-width: 800px;
+                        margin: auto;
+                        padding: 30px;
+                        border: 1px solid #eee;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+                        font-size: 16px;
+                        line-height: 24px;
+                        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+                        color: #555;
                     }
+                    /* Add other styles here */
+                </style>
+            `;
 
-                    .invoice-box table tr.information table td {
-                        width: 100%;
-                        display: block;
-                        text-align: center;
-                    }
-                }
+            document.body.innerHTML = printStyles + printContents;
 
-                .invoice-box .download-button {
-                    display: inline-block;
-                    padding: 10px 20px;
-                    background-color: #007bff;
-                    color: white;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    text-align: center;
-                    text-decoration: none;
-                    font-size: 16px;
-                    margin-top: 10px;
-                }
+            window.print();
 
-                .invoice-box .download-button:hover {
-                    background-color: #0056b3;
-                }
+            document.body.innerHTML = originalContents;
+        }
+    </script>
+</head>
+<body>
 
-                .invoice-box .payment-button {
-                    display: block;
-                    width: 100%;
-                    max-width: 200px;
-                    margin: 20px auto;
-                    padding: 10px;
-                    background-color: #4CAF50;
-                    color: white;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    font-size: 16px;
-                    text-align: center;
-                    text-decoration: none;
-                }
-            </style>
-        `;
-
-        document.body.innerHTML = printStyles + printContents;
-
-        window.print();
-
-        document.body.innerHTML = originalContents;
-    }
-</script>
-
-
-{% for shipment in shipments %}
-
-
-<div class="invoice-box">
+<div class="invoice-box" id="invoice-{{ shipment.id }}">
     <table cellpadding="0" cellspacing="0">
         <h1>Shipment Invoice {{ shipment.id }}</h1>
         <tr class="top">
@@ -293,18 +190,18 @@
             <td colspan="3">
                 <table>
 
-                    
+
                     <tr>
                         <td>
                             <b>Shipment Source Details </b>
                             <br />
                             <br />
-                            <b>Sender Name:</b>
+                            <b>Sender ID:</b> {{ shipment.user_id }}
                             <br />
                             <b>Sender Address:</b> {{ shipment.origin }}
                             <br />
-                            john@example.com
-                
+
+
                         </td>
                         <td></td>
                         <td>
@@ -315,7 +212,7 @@
                             <br />
                             <b>Receipient address:</b>{{ shipment.destination }}
                             <br />
-                            
+
                         </td>
                     </tr>
                 </table>
@@ -337,7 +234,7 @@
             <td>${{ shipment.estimated_price }}</td>
         </tr>
 
-       
+
         <tr class="total">
             <td></td>
             <td></td>
@@ -355,7 +252,7 @@
             <tr>
                 <td></td>
             </tr>
-        
+
             <tr class="heading">
                 <td>Payment Method</td>
                 <td></td>
@@ -369,7 +266,7 @@
 
                 <td>{{ shipment.estimated_price }}$</td>
             </tr>
-        
+
 
     </table>
 <br>
@@ -378,11 +275,11 @@
     <br>
     <!-- Download PDF Button -->
     <button class="download-button" onclick="window.print()">Download Invoice</button>
-    
+
     <!-- Payment Button -->
     <a href="" class="payment-button">Pay Now</a>
 
- 
+
     <br>
     <br>
     <!-- Thanks for Patronage Section -->
@@ -394,5 +291,8 @@
 
 </div>
     <br>
-{% endfor %}
-{% endblock %}
+
+</body>
+</html>
+
+
