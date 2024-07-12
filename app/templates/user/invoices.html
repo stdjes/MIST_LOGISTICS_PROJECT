@@ -64,24 +64,19 @@
     <div class="container">
         <h2>Invoices</h2>
         
-        <!-- Example Invoice History -->
-       <!-- Example Invoice History -->
-<ul class="invoices-list">
-    {% for invoice in invoices %}
-    <li class="invoice-item">
-        <div><strong>Invoice #{{ invoice.id }}</strong> - Generated on {{ invoice.date_created }}</div>
-        <div>Total Amount: ${{ invoice.amount }}</div>
-        <div>Status: {{ invoice.status }}</div>
-        <div class="invoice-actions">
-            <a href="{{ url_for('generate_invoice', shipment_id=invoice.id) }}">Download</a>
-            <a href="#">Print</a>
-        </div>
-    </li>
-    {% endfor %}
-</ul>
-
+        <ul class="invoices-list">
+            {% for shipment in shipments %}
+            <li class="invoice-item">
+                <div><strong>Invoice #{{ shipment.id }}</strong> - Generated on {{ shipment.record_date.strftime('%Y-%m-%d') }}</div>
+                <div>Total Amount: ${{ shipment.estimated_price }}</div>
+                <div>Status: {{ shipment.status }}</div>
+                <div class="invoice-actions">
+                    <a href="{{ url_for('shipment_blueprint.view_invoice', shipment_id=shipment.id) }}">Open</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
-
 
 </main>
 
