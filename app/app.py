@@ -3,6 +3,8 @@ from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 import os
+from dotenv import load_dotenv # Load environment variables from .env file
+load_dotenv()
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
@@ -21,8 +23,8 @@ def create_app():
     jwt.init_app(app)
 
     # Register blueprints with unique names
-    from MIST_LOGISTICS_PROJECT.app.routes.user import user_bp as user_blueprint
-    from MIST_LOGISTICS_PROJECT.app.routes.shipment import shipment_bp as shipment_blueprint
+    from .routes.user import user_bp as user_blueprint
+    from .routes.shipment import shipment_bp as shipment_blueprint
 
     app.register_blueprint(user_blueprint,name="user_blueprint")
     app.register_blueprint(shipment_blueprint,name="shipment_blueprint")

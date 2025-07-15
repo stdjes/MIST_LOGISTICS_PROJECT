@@ -138,7 +138,7 @@
     </div>
 
     <div class="package form">
-        <form method="GET" action="{{ url_for('tracking') }}" accept-charset="UTF-8" class="" id="search_form_id" role="search">
+        <form method="GET" action="{{ url_for('shipment_blueprint.tracking') }}" accept-charset="UTF-8" class="" id="search_form_id" role="search">
             <div class="input-group">
                 <div class="input-group-text">
                     <input type="radio" class="form" name="package_radio" id="inlineRadio1" checked value="package_id">
@@ -146,9 +146,9 @@
                 </div>
             </div>
             <div class="form-group search">
-                <input type="number" class="form-control" name="package_id" placeholder="Enter your package or item ID here" required>
+                <input type="text" class="form-control" name="package_id" placeholder="Enter your package or item ID here" required>
                 <button type="submit" class="btn btn-primary">Track</button>
-                <a class="reset" href="{{ url_for('tracking') }}">Reset</a>
+                <a class="reset" href="{{ url_for('shipment_blueprint.tracking') }}">Reset</a>
             </div>
         </form>
         <br><br>
@@ -159,7 +159,7 @@
         <div class="tracking-result">
             <h4>Tracking Result</h4>
             <p>Status: {{ tracking_result.status }}</p>
-            <p>Location: {{ tracking_result.location }}</p>
+            <p>Location: {{ tracking_result.destination }}</p>
         </div>
         {% endif %}
     </div>
