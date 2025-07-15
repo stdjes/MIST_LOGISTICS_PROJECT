@@ -73,9 +73,9 @@ To get a local copy up and running, follow these simple steps:
 
     Create a `.env` file in the root directory and add the following variables:
     ```env
-    NODE_ENV=development
+    PYTHON_ENV=development
     PORT=5000
-    MONGO_URI=your_mongodb_uri
+    MONGO_URI=your_mongodb_ur
     GOOGLE_MAPS_API_KEY=your_google_maps_api_key
     ```
 
